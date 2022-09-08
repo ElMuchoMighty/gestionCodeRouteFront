@@ -8,4 +8,9 @@ export class Test {
     codeBonneReponse!:number;
     timerRep!:number;
     reponses!:Reponse[];
+    examenFinal!:ExamenFinal;
+    examenBlanc!:ExamenBlanc;
+
+
+   
 }

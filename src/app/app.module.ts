@@ -30,7 +30,7 @@ import { CoursService } from './services/cours.service';
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
   ],
 
   providers: [TestService,ReponseService,CoursService],
