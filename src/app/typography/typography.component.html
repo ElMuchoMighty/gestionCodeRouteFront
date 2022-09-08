@@ -5,16 +5,18 @@
                 <div class="card">
                     <div class="header">
                                 <div class="btn-group-center mb-3" role="group" aria-label="Groupe de boutons" >
-                                    <button (click)="Entrée()" type="button" class="btn btn-info">Entrée et sortie</button>
-                                    <button (click)="Règles()" type="button" class="btn btn-secondary">Règles et signalisation</button>
-                                    <button (click)="Circulation()" type="button" class="btn btn-info">Circulation</button>
-                                    <button (click)="Conducteur()" type="button" class="btn btn-secondary">Conducteur</button>
-                                    <button (click)="Mécaniques()" type="button" class="btn btn-info">Mécaniques</button>
-                                    <button (click)="Equipements de sécurité()" type="button" class="btn btn-secondary">Equipements de sécurité</button>
-                                    <button (click)="Règlementation et accidents()" type="button" class="btn btn-info">Règlementation et accidents</button>
-                                    <button (click)="Eco()" type="button" class="btn btn-secondary">Eco-conduite</button>
+                                    <button (click)="es(1)" (click)="es1()" type="button" class="btn btn-info">Entrée et sortie</button>
+                                    <button (click)="rs(2)" (click)="rs1()" type="button" class="btn btn-secondary">Règles et signalisation</button>
+                                    <button (click)="c(3)" (click)="c1()" type="button" class="btn btn-info">Circulation</button>
+                                    <button (click)="cd(4)" (click)="cd1()" type="button" class="btn btn-secondary">Conducteur</button>
+                                    <button (click)="m(5)" (click)="m1()" type="button" class="btn btn-info">Mécaniques</button>
+                                    <button (click)="ese(6)" (click)="ese1()" type="button" class="btn btn-secondary">Equipements de sécurité</button>
+                                    <button (click)="ra(7)" (click)="ra1()" type="button" class="btn btn-info">Règlementation et accidents</button>
+                                    <button (click)="ec(8)" (click)="ec1()" type="button" class="btn btn-secondary">Eco-conduite</button>
                                 </div>
                     </div>
+                    <h1><span myDirective>{{Titre}}</span></h1>
+                    <span myDirective>{{contenus}}</span>
                 </div>
             </div>
         </div>

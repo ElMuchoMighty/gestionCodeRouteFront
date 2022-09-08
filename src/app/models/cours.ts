@@ -1,8 +1,8 @@
 export class Cours {
     idCours!:number;
-    nbrHeures!:number;
-    contenu!:string;
-    complexite!:number;
-    thematique!:string;
+    nbrHeuresCours!:number;
+    contenuCours!:string;
+    complexiteCours!:number;
+    thematiqueCours!:string;
     formatCours!:string;
 }
