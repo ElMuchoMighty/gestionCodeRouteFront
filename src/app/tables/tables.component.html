@@ -1,51 +1,108 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="card">
-                    <div class="header">
-                        <h4 class="title">Striped Table with Hover</h4>
-                        <p class="category">Here is a subtitle for this table</p>
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Ajouter un utilisateur</h4>
                     </div>
-                    <div class="content table-responsive table-full-width">
-                          <table class="table table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let row of tableData1.dataRows">
-                                        <td *ngFor="let cell of row">{{cell}}</td>
-                                    </tr>
-                                </tbody>
-                          </table>
+                    <div class="card-body">
+                        <form (ngSubmit)="save()">
+  
+                            <div class="row">
+                                <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Image</label>
+                                  <input type="file" (change)="selectFile($event)" name="image">
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <textarea placeholder="Question" rows="5" class="form-control"   [(ngModel)]='test.question' name="question"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <input placeholder="Bonne reponse" type="number" [(ngModel)]="test.codeBonneReponse" name="codeBonneReponse">
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="row">
+                              <div class="col-md-6">            
+                                <div class="form-group">
+                                  <input matInput placeholder="Timer en seconde" type="number"  [(ngModel)]="test.timerRep" name="timerRep">
+                                </div>
+                               </div>
+                            </div>
+                            <form (ngSubmit)="saveReponse()">
+                                <div class="row">
+                                    <div class="col-md-4">            
+                                     <div class="form-group">
+                                        <input matInput placeholder="reponse" type="text"  [(ngModel)]="reponse.contenuReponse" name="contenuReponse">
+                                     </div>
+                                     </div>
+                                     <div class="col-md-4">            
+                                        <div class="form-group">
+                                           <input type="number"  [(ngModel)]="reponse.codeReponse" name="codeReponse">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">            
+                                        <div class="form-group">
+                                           <input type="number"  [(ngModel)]="reponse.test.idTest" name="test">
+                                        </div>
+                                    </div>
+                                 </div>
+                                 <button mat-raised-button  class="btn btn-danger ">Ajouter Reponse</button>
+                            </form>
 
+                            <button mat-raised-button type="submit" class="btn btn-danger ">Ajouter</button>
+                            <div class="clearfix"></div>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="card card-plain">
-                    <div class="header">
-                        <h4 class="title">Table on Plain Background</h4>
-                        <p class="category">Here is a subtitle for this table</p>
-                    </div>
-                    <div class="content table-responsive table-full-width">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let row of tableData2.dataRows">
-                                    <td *ngFor="let cell of row">{{cell}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            <!--<div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Liste des utilisateur</h4>
+                      <p class="card-category"> vous voulez supprimer votre compte ?</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>
+                                      Nom
+                                  </th>
+                                  <th>
+                                      Prenom
+                                  </th>
+                                  <th>
+                                    Date de Naissance
+                                  </th>
+                                  <th>
+                                      Action
+                                  </th>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let u of users">
+                                  <td>{{u.nomUtilisateur}}</td>
+                                  <td>{{u.prenomUtilisateur}}</td>
+                                  <td><img src="data:image/jpeg;base64,{{u.image}}" height="120" width="120"/></td>
+                                  <td><button (click)="delete(u.idUtilisateur)" class="btn btn-danger pull-right">Delete</button></td>
+                          
+                        
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>-->
         </div>
     </div>
-</div>
+  </div>
+

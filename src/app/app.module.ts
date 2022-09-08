@@ -12,7 +12,10 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { TestService } from './services/test.service';
+import { ReponseService } from './services/reponse.service';
 import { CoursService } from './services/cours.service';
+
 
 @NgModule({
   imports: [
@@ -29,7 +32,9 @@ import { CoursService } from './services/cours.service';
     AppComponent,
     AdminLayoutComponent
   ],
-  providers: [CoursService],
+
+  providers: [TestService,ReponseService,CoursService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
