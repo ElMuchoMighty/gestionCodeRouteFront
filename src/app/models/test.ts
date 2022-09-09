@@ -1,4 +1,4 @@
-import { file_v1 } from "googleapis";
+
 import { Reponse } from "./reponse";
 
 export class Test {
@@ -8,4 +8,9 @@ export class Test {
     codeBonneReponse!:number;
     timerRep!:number;
     reponses!:Reponse[];
+    examenFinal!:ExamenFinal;
+    examenBlanc!:ExamenBlanc;
+
+
+   
 }
