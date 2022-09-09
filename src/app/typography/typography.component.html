@@ -17,6 +17,25 @@
                     </div>
                     <h1><span myDirective>{{Titre}}</span></h1>
                     <span myDirective>{{contenus}}</span>
+                    
+
+                    <table>
+                          <tr>
+                            <th>Id</th>
+                          </tr>
+                          <tr *ngFor="let c of classes">
+                            <td>{{c.id}}</td>
+                            <td><button (click)="updateContenu(u.idUtilisateur)">Modifier</button></td>
+                        </tr>
+                      </table>
+               
+                      <form (ngSubmit)="updateContenu(1)">
+                    <div class="form-group">
+                        <label>About Me</label>
+                        <textarea rows="5" class="form-control" placeholder="Here can be your description" >{{contenus}}</textarea>
+                    </div>
+                    <div><button (click)="updateContenu(1)" type="button" class="btn btn-primary btn-lg mb-2">Modifier</button></div>
+                </form>
                 </div>
             </div>
         </div>
