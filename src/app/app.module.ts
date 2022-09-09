@@ -14,6 +14,8 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { TestService } from './services/test.service';
 import { ReponseService } from './services/reponse.service';
+import { CoursService } from './services/cours.service';
+
 
 @NgModule({
   imports: [
@@ -28,9 +30,11 @@ import { ReponseService } from './services/reponse.service';
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
   ],
-  providers: [TestService,ReponseService],
+
+  providers: [TestService,ReponseService,CoursService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
