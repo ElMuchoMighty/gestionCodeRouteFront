@@ -27,6 +27,7 @@ currentFileUpload:File;
 
   ngOnInit() {
     this.findAllTest();
+    this.findAllReponse();
   }
 findAllTest(){
     this.testService.findAll().subscribe(data => {this.tests = data})
@@ -49,6 +50,7 @@ save(){
   }
 
 saveReponse(){
+  console.log("response="+this.reponse);
     this.reponseService.save(this.reponse).subscribe(()=>{this.findAllReponse();this.reponse =new Reponse();
         })
 }
