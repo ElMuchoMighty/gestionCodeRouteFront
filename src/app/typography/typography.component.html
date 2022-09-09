@@ -24,8 +24,9 @@
                             <th>Id</th>
                           </tr>
                           <tr *ngFor="let c of classes">
-                            <td>{{c.id}}</td>
-                            <td><button (click)="updateContenu(u.idUtilisateur)">Modifier</button></td>
+                            <td>{{c.idCours}}</td>
+                            <td>{{c.contenuCours}}</td>
+                            <td><button (click)="editCours(u)">Editer</button></td>
                         </tr>
                       </table>
                

@@ -1,12 +1,19 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-
+import { EditcoursComponent } from './editcours/editcours.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { TypographyComponent } from './typography/typography.component';
 
 const routes: Routes =[
   {
+    path:'cours',
+    component : TypographyComponent
+  },{
+    path: 'editcours/:id',
+    component : EditcoursComponent
+  },{
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',

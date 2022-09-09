@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cours } from 'app/models/cours';
 import { CoursService } from 'app/services/cours.service';
 import { Observable } from 'rxjs';
@@ -13,7 +14,7 @@ import { Observable } from 'rxjs';
 export class TypographyComponent implements OnInit {
   classes!: any[]; 
   cours:Cours=new Cours();
-  constructor(private coursService:CoursService) { }
+  constructor(private coursService:CoursService, private router:Router) { }
   ngOnInit(): void {
  
    // this.users = this.utilisateurService.users;
@@ -34,12 +35,15 @@ export class TypographyComponent implements OnInit {
     )
   }
 
-  updateContenu(id:number){
-    this.coursService.update(this.cours).subscribe(
-      () => {
-        this.findOneCours(id);
-      }
-    )
+  editCours(cours:Cours){
+    //step 2
+    localStorage.removeItem("editcoursId")
+    //step 1
+    localStorage.setItem("editcoursId",cours.idCours.toString());//permet de remplir les champs de modification
+    //step 3
+    //localhost:4200/editcours/3
+    this.router.navigate(['/editcours',cours.idCours]);
+
   }
  
 
