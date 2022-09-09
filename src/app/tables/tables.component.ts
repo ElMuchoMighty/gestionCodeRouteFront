@@ -57,6 +57,11 @@ saveReponse(){
         })
 }
 
+deleteReponse(id:number){
+  this.reponseService.delete(id).subscribe(()=>{this.findAllReponse()});
+}
+
+
   delete(id:number){
     this.testService.delete(id).subscribe(()=>{this.findAllTest()});
   }
