@@ -4,6 +4,8 @@ import { Reponse } from 'app/models/reponse';
 import { Test } from 'app/models/test';
 import { ReponseService } from 'app/services/reponse.service';
 import { TestService } from 'app/services/test.service';
+
+
 import { data } from 'jquery';
 
 declare interface TableData {
@@ -27,6 +29,7 @@ currentFileUpload:File;
 
   ngOnInit() {
     this.findAllTest();
+    this.findAllReponse();
   }
 findAllTest(){
     this.testService.findAll().subscribe(data => {this.tests = data})
@@ -49,6 +52,7 @@ save(){
   }
 
 saveReponse(){
+  console.log("response="+this.reponse);
     this.reponseService.save(this.reponse).subscribe(()=>{this.findAllReponse();this.reponse =new Reponse();
         })
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+/*
 @Injectable({
   providedIn: 'root'
 })
@@ -24,4 +24,6 @@ export class CoursService {
   public delete(id:number):Observable<any>{
     return this.httpClient.delete(this.baseUrl+"/"+id); //http://localhost:7070/Cours/1
   }
+  
 }
+*/
