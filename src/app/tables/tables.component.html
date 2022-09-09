@@ -4,7 +4,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title">Ajouter un utilisateur</h4>
+                        <h4 class="card-title">Ajouter une question</h4>
                     </div>
                     <div class="card-body">
                         <form (ngSubmit)="save()">
@@ -49,12 +49,14 @@
                                            <input type="number"  [(ngModel)]="reponse.codeReponse" name="codeReponse">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">            
-                                        <div class="form-group">
-                                           <input type="number"  [(ngModel)]="reponse.test.idTest" name="test">
+                                        <div class="col-md-4">
+                                          <select  name="test" [(ngModel)]="reponse.test">
+                                              <option *ngFor="let t of tests" [ngValue]="t">
+                                                  {{t.idTest}}
+                                              </option>
+                                          </select> 
                                         </div>
                                     </div>
-                                 </div>
                                  <button mat-raised-button  class="btn btn-danger ">Ajouter Reponse</button>
                             </form>
 
@@ -64,44 +66,55 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="col-md-12">
+            <div class="col-md-12">
               <div class="card">
                   <div class="card-header card-header-danger">
-                      <h4 class="card-title ">Liste des utilisateur</h4>
-                      <p class="card-category"> vous voulez supprimer votre compte ?</p>
+                      <h4 class="card-title ">Liste des questions</h4>
+                      <p class="card-category"> vous voulez supprimer des questions ?</p>
                   </div>
                   <div class="card-body">
                       <div class="table-responsive">
                           <table class="table">
                               <thead class=" text-primary">
                                   <th>
-                                      Nom
+                                     image
                                   </th>
                                   <th>
-                                      Prenom
+                                     question
                                   </th>
                                   <th>
-                                    Date de Naissance
+                                    timer
                                   </th>
                                   <th>
-                                      Action
+                                      id test
                                   </th>
                               </thead>
                               <tbody>
-                                <tr *ngFor="let u of users">
-                                  <td>{{u.nomUtilisateur}}</td>
-                                  <td>{{u.prenomUtilisateur}}</td>
-                                  <td><img src="data:image/jpeg;base64,{{u.image}}" height="120" width="120"/></td>
-                                  <td><button (click)="delete(u.idUtilisateur)" class="btn btn-danger pull-right">Delete</button></td>
-                          
-                        
-                              </tr>
+                                <tr *ngFor="let t of tests">
+                                <td><img src="data:image/jpeg;base64,{{t.image}}" height="120" width="120"/></td>
+                                  <td>{{t.question}}</td>
+                                  <td>{{t.codeBonneReponse}}</td>
+                                  <td>{{t.idTest}}</td>
+                                  <td><button (click)="delete(t.idTest)" class="btn btn-danger pull-right">Delete</button></td>
+                                  <td>  
+                                  <div>
+                                    <table>
+                                        <tr *ngFor="let r of reponses">
+                                        <c:if test="${r.codeReponse}==1">
+                                         <td>{{r.codeReponse}}</td>
+                                         <td>{{r.contenuReponse}}</td>
+                                        </c:if>
+                                         </tr>
+                                     </table>
+                                    </div>
+                                  </td>
+                                </tr>
                               </tbody>
                           </table>
                       </div>
                   </div>
               </div>
-          </div>-->
+          </div>
         </div>
     </div>
   </div>

@@ -7,10 +7,4 @@ export class Test {
     question!:string;
     codeBonneReponse!:number;
     timerRep!:number;
-    reponses!:Reponse[];
-    examenFinal!:ExamenFinal;
-    examenBlanc!:ExamenBlanc;
-
-
-   
 }
