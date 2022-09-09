@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CoursService {
-  private baseUrl = "http://localhost:7070/tests";
+  private baseUrl = "http://localhost:7070/vehicules";
   constructor(private httpClient:HttpClient) { }
 
   public findAll() : Observable<any>{
@@ -15,11 +15,11 @@ export class CoursService {
   public findOne(id:number) : Observable<any>{
     return this.httpClient.get(this.baseUrl+"/"+id);
   }
-  public save (tests:any):Observable<any>{
-    return this.httpClient.post(this.baseUrl,tests);
+  public save (vehicules:any):Observable<any>{
+    return this.httpClient.post(this.baseUrl,vehicules);
   }
-  public update (tests:any):Observable<any>{
-    return this.httpClient.put(this.baseUrl,tests);
+  public update (vehicules:any):Observable<any>{
+    return this.httpClient.put(this.baseUrl,vehicules);
   }
   public delete(id:number):Observable<any>{
     return this.httpClient.delete(this.baseUrl+"/"+id); //http://localhost:7070/Cours/1

@@ -33,9 +33,20 @@ export class TypographyComponent implements OnInit {
       }
     )
   }
+
+  updateContenu(id:number){
+    this.coursService.update(this.cours).subscribe(
+      () => {
+        this.findOneCours(id);
+      }
+    )
+  }
+ 
+
   delete (id:number){
     this.coursService.delete(id).subscribe(()=>{this.findAllCours()});
   }
+
 contenus ="Vous pouvez accéder à des cours gratuits ou payants";
 Titre="BIENVENUE A LA SESSION COURS :)"
 

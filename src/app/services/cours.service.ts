@@ -15,8 +15,11 @@ export class CoursService {
   public findOne(id:number) : Observable<any>{
     return this.httpClient.get(this.baseUrl+"/"+id);
   }
-  public save (utilisateur:any):Observable<any>{
-    return this.httpClient.post(this.baseUrl,utilisateur);
+  public save (cours:any):Observable<any>{
+    return this.httpClient.post(this.baseUrl,cours);
+  }
+  public update (cours:any):Observable<any>{
+    return this.httpClient.put(this.baseUrl,cours);
   }
   public delete(id:number):Observable<any>{
     return this.httpClient.delete(this.baseUrl+"/"+id); //http://localhost:7070/Cours/1

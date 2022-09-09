@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Assuranceauto } from 'app/models/assuranceauto';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursService {
-  private baseUrl = "http://localhost:7070/tests";
+  private baseUrl = "http://localhost:7070/assuranceAutos";
   constructor(private httpClient:HttpClient) { }
 
   public findAll() : Observable<any>{
@@ -15,11 +16,11 @@ export class CoursService {
   public findOne(id:number) : Observable<any>{
     return this.httpClient.get(this.baseUrl+"/"+id);
   }
-  public save (tests:any):Observable<any>{
-    return this.httpClient.post(this.baseUrl,tests);
+  public save (assuranceauto:any):Observable<any>{
+    return this.httpClient.post(this.baseUrl,assuranceauto);
   }
-  public update (tests:any):Observable<any>{
-    return this.httpClient.put(this.baseUrl,tests);
+  public update (assuranceauto:any):Observable<any>{
+    return this.httpClient.put(this.baseUrl,assuranceauto);
   }
   public delete(id:number):Observable<any>{
     return this.httpClient.delete(this.baseUrl+"/"+id); //http://localhost:7070/Cours/1
