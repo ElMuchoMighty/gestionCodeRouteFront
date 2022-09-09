@@ -1,7 +1,7 @@
 import { HttpClient, HttpRequest } from "@angular/common/http";
 import { Moniteur } from "app/models/moniteur";
 import { Observable } from "rxjs";
-
+/*
 export class MoniteurteurService {
     private baseUrl = "http://localhost:7070/utilisateurs";
   
@@ -11,11 +11,11 @@ export class MoniteurteurService {
     public findAll() : Observable<any>{
       return this.httpClient.get(this.baseUrl);
     }
-  /*
+  
     public save(utilisateur:any) : Observable<any>{
       return this.httpClient.post(this.baseUrl,utilisateur);
     }
-    */
+    
   
     public save(image:File, moniteur:Moniteur):Observable<any>{
       const formData = new FormData();
@@ -35,5 +35,6 @@ export class MoniteurteurService {
     public delete(id:number) : Observable<any>{
       return this.httpClient.delete(this.baseUrl+"/"+id);
     }
-  }
   
+  }
+  */
