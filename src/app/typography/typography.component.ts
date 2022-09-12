@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cours } from 'app/models/cours';
 import { CoursService } from 'app/services/cours.service';
 import { Observable } from 'rxjs';
@@ -13,7 +14,8 @@ import { Observable } from 'rxjs';
 export class TypographyComponent implements OnInit {
   classes!: any[]; 
   cours:Cours=new Cours();
-  constructor(private coursService:CoursService) { }
+  appService: any;
+  constructor(private coursService:CoursService, private router:Router) { }
   ngOnInit(): void {
  
    // this.users = this.utilisateurService.users;
@@ -36,6 +38,18 @@ export class TypographyComponent implements OnInit {
   delete (id:number){
     this.coursService.delete(id).subscribe(()=>{this.findAllCours()});
   }
+  editcours(cours:Cours){
+    // Step 2
+    localStorage.removeItem("editcoursId");
+    // Step 1
+    localStorage.setItem("editcoursId",cours.idCours.toString());
+    // Step 3
+    // localhost:4200/editUser/3
+    this.router.navigate(['/editcours',cours.idCours]);
+ 
+  }
+
+
 contenus ="Vous pouvez accéder à des cours gratuits ou payants";
 Titre="BIENVENUE A LA SESSION COURS :)"
 
@@ -94,5 +108,7 @@ rs(id:number) {
               ec1() {
                 this.Titre = 'Eco-conduite';
                 }
+               
+            
               }
 

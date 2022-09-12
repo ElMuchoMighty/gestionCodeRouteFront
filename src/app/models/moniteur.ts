@@ -1,4 +1,5 @@
 export class Moniteur {
+<<<<<<< HEAD
     idMoniteur!:number;
     nomMoniteur!:string;
     prenomMoniteur!:string;
@@ -7,4 +8,6 @@ export class Moniteur {
     telephoneMoniteur!:number;
     emailMoniteur!:string;
    //autoEcole!:AutoEcole;
+=======
+>>>>>>> master
 }

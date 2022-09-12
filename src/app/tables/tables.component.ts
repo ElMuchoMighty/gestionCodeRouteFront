@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'app/app.service';
+import { ExamenBlanc } from 'app/models/examen-blanc';
+import { ExamenFinal } from 'app/models/examen-final';
 import { Reponse } from 'app/models/reponse';
 import { Test } from 'app/models/test';
+import { ExamenBlancService } from 'app/services/examenblanc.service';
+import { ExamenFinalService } from 'app/services/examenfinal.service';
 import { ReponseService } from 'app/services/reponse.service';
 import { TestService } from 'app/services/test.service';
+
+
 import { data } from 'jquery';
 
 declare interface TableData {
@@ -19,14 +25,21 @@ declare interface TableData {
 export class TablesComponent implements OnInit {
 tests!:any[];
 reponses!:any[];
+examenBlancs!:any[];
+examenFinals!:any[];
 reponse:Reponse=new Reponse;
 test:Test= new Test;
+examenBlanc:ExamenBlanc = new ExamenBlanc;
+examenFinal:ExamenFinal = new ExamenFinal;
 selectedFiles:FileList;
 currentFileUpload:File;
-  constructor(private testService:TestService,private reponseService:ReponseService) { }
+score=0
+  constructor(private testService:TestService,private reponseService:ReponseService,private examenBlancService:ExamenBlancService,private examenFinalService:ExamenFinalService) { }
 
   ngOnInit() {
     this.findAllTest();
+    this.findAllReponse();
+    this.findAllExamenBlanc();
   }
 findAllTest(){
     this.testService.findAll().subscribe(data => {this.tests = data})
@@ -49,12 +62,53 @@ save(){
   }
 
 saveReponse(){
+  console.log("response="+this.reponse);
     this.reponseService.save(this.reponse).subscribe(()=>{this.findAllReponse();this.reponse =new Reponse();
         })
 }
 
+findAllExamenBlanc(){
+  this.examenBlancService.findAll().subscribe(data => {this.examenBlancs = data})
+}
+
+saveExamenBlanc(){
+  this.examenBlancService.save(this.examenBlanc).subscribe(()=>{this.findAllExamenBlanc();this.examenBlanc=new ExamenBlanc()})
+}
+
+findAllExamenFinal(){
+  this.examenFinalService.findAll().subscribe(data => {this.examenFinals})
+}
+
+saveExamenFinal(){
+this.examenFinalService.save(this.examenFinal).subscribe(()=>{this.findAllExamenFinal();this.examenFinal= new ExamenFinal()})
+}
+
+deleteExamenBlanc(id:number){
+  this.examenBlancService.delete(id).subscribe(()=>{this.findAllExamenBlanc})
+}
+
+deleteExamenFinal(id:number){
+  this.examenFinalService.delete(id).subscribe(()=>{this.findAllExamenFinal})
+}
+
+deleteReponse(id:number){
+  this.reponseService.delete(id).subscribe(()=>{this.findAllReponse()});
+}
+
+
   delete(id:number){
     this.testService.delete(id).subscribe(()=>{this.findAllTest()});
+  }
+
+
+  answer(id1:number,id2:number,score:number){
+    if (id1==id2){
+      this.score=score+1
+    }else{
+      this.score=score-1
+    }
+
+   
   }
 
 }

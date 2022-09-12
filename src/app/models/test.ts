@@ -1,4 +1,6 @@
 
+import { ExamenBlanc } from "./examen-blanc";
+import { ExamenFinal } from "./examen-final";
 import { Reponse } from "./reponse";
 
 export class Test {
@@ -7,10 +9,6 @@ export class Test {
     question!:string;
     codeBonneReponse!:number;
     timerRep!:number;
-    reponses!:Reponse[];
-    examenFinal!:ExamenFinal;
-    examenBlanc!:ExamenBlanc;
-
-
-   
+    examenBlanc!:ExamenBlanc[];
+    examenFinal!:ExamenFinal[];
 }

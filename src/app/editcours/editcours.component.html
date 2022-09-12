@@ -1,0 +1,15 @@
+
+<div>
+    <h1>Mise à jour d'un utilisateur</h1>
+    <form [formGroup]="editForm">
+        <table>
+            <tr>
+                <td>contenuCours</td>
+                <td><input type="text" [(ngModel)]="cours.contenuCours" formControlName="contenuCours"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button (click)="updatecours()">Ajouter</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
