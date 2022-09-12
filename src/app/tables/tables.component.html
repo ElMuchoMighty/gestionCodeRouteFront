@@ -4,11 +4,33 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title">Ajouter une question</h4>
+                        <h4 class="card-title">Creer un Examen</h4>
                     </div>
                     <div class="card-body">
+                        <form (ngSubmit)="saveExamenBlanc()">
+                            <button mat-raised-button  class="btn btn-danger ">Creer un examen blanc</button>
+                        </form>
+                        <form (ngSubmit)="saveExamenFinal()">
+                            <button mat-raised-button  class="btn btn-danger ">Creer un examen final</button>
+                        </form>
+
                         <form (ngSubmit)="save()">
   
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>iD de l' exam correspondant</label>
+                                    <select  name="examenBlanc" [(ngModel)]="test.examenBlanc">
+                                        <option *ngFor="let eb of examenBlancs" [ngValue]="eb">
+                                            {{eb.idExamenBlanc}}
+                                        </option>
+                                    </select>                                 
+                                </div>
+                                </div>
+                            </div>
+
+
                             <div class="row">
                                 <div class="col-md-6">
                                 <div class="form-group">
@@ -83,7 +105,7 @@
                                      question
                                   </th>
                                   <th>
-                                    timer
+                                    bonne reponse
                                   </th>
                                   <th>
                                       id test
@@ -102,6 +124,7 @@
 
                                     <table>
                                         <tr *ngFor="let r of reponses">
+                                            <td>{{r.codeReponse}}</td>
                                         <div *ngIf="r.test.idTest==t.idTest">
                                         
                                         
@@ -122,6 +145,58 @@
               </div>
           </div>
         </div>
+
+
+        <h4>Score: {{score}}</h4>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title ">Liste des questions Examens</h4>
+                    <p class="card-category"> vous veuillez répondre aux questions</p>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <th>
+                                   image
+                                </th>
+                                <th>
+                                   question
+                                </th>
+                            </thead>
+                            <tbody>
+                              
+                              <tr *ngFor="let t of tests">
+                                  
+                              <td><img src="data:image/jpeg;base64,{{t.image}}" height="120" width="120"/></td>
+                                <td>{{t.question}}</td>
+                                <td>
+
+                                  <table border="2">
+                                      <tr *ngFor="let r of reponses">
+                                      <cond *ngIf="r.test.idTest==t.idTest">
+                                      
+                                      
+                                      <td>{{r.contenuReponse}}</td>
+                                      <td>|____________ |</td>
+
+                                      <td><button (click)="answer(r.codeReponse,t.codeBonneReponse,score)" class="btn btn-danger pull-right">Reponse {{r.codeReponse}}</button></td>
+                                      </cond>
+                                       </tr>
+                                     
+                                   </table>
+
+                                  </td> 
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
   </div>
 
