@@ -5,9 +5,9 @@ import { Cours } from 'app/models/cours';
 import { CoursService } from 'app/services/cours.service';
 
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.css']
+  selector: 'app-editcours',
+  templateUrl: './editcours.component.html',
+  styleUrls: ['./editcours.component.scss']
 })
 export class EditcoursComponent implements OnInit {
   editForm!: FormGroup;
@@ -24,17 +24,21 @@ export class EditcoursComponent implements OnInit {
     }
     this.editForm = this.formBuilder.group({
       idCours:[],
-      contenuCours: ['',Validators.required]
+      nbrHeuresCours: ['',Validators.required],
+      contenuCours: ['',Validators.required],
+      complexiteCours: ['',Validators.required],
+      thematiqueCours: ['',Validators.required],
+      formatCours: ['',Validators.required]
+      
     })
     this.coursService.findOne(+coursId).
     subscribe(data => {this.editForm.setValue(data)});  
   }
  
-  updateCours(){
+  updatecours(){
     var coursJson = JSON.stringify(this.editForm.value);
-    this.coursService.update(coursJson).
+    this.coursService.updateCours(coursJson).
     subscribe(()=>{this.router.navigate(['/cours'])});
-  }
- 
-}
 
+  }
+}

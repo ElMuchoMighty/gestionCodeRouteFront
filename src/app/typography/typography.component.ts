@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
 export class TypographyComponent implements OnInit {
   classes!: any[]; 
   cours:Cours=new Cours();
+  appService: any;
   constructor(private coursService:CoursService, private router:Router) { }
   ngOnInit(): void {
  
@@ -34,22 +35,20 @@ export class TypographyComponent implements OnInit {
       }
     )
   }
-
-  editCours(cours:Cours){
-    //step 2
-    localStorage.removeItem("editcoursId")
-    //step 1
-    localStorage.setItem("editcoursId",cours.idCours.toString());//permet de remplir les champs de modification
-    //step 3
-    //localhost:4200/editcours/3
-    this.router.navigate(['/editcours',cours.idCours]);
-
-  }
- 
-
   delete (id:number){
     this.coursService.delete(id).subscribe(()=>{this.findAllCours()});
   }
+  editcours(cours:Cours){
+    // Step 2
+    localStorage.removeItem("editcoursId");
+    // Step 1
+    localStorage.setItem("editcoursId",cours.idCours.toString());
+    // Step 3
+    // localhost:4200/editUser/3
+    this.router.navigate(['/editcours',cours.idCours]);
+ 
+  }
+
 
 contenus ="Vous pouvez accéder à des cours gratuits ou payants";
 Titre="BIENVENUE A LA SESSION COURS :)"
@@ -109,5 +108,7 @@ rs(id:number) {
               ec1() {
                 this.Titre = 'Eco-conduite';
                 }
+               
+            
               }
 

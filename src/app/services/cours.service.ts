@@ -19,10 +19,11 @@ export class CoursService {
   public save (cours:any):Observable<any>{
     return this.httpClient.post(this.baseUrl,cours);
   }
-  public update(cours:any):Observable<any>{
+  public updateCours(cours:any):Observable<any>{
     var coursParse = JSON.parse(cours);
-    return this.httpClient.put(this.baseUrl+'/'+coursParse.idCours,coursParse);
+    return this.httpClient.put(this.baseUrl+'/'+coursParse.idUtilisateur,coursParse);
   }
+
   public delete(id:number):Observable<any>{
     return this.httpClient.delete(this.baseUrl+"/"+id); //http://localhost:7070/Cours/1
   }
