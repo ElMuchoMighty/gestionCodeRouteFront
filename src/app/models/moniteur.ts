@@ -4,7 +4,7 @@ export class Moniteur {
     prenomMoniteur!:string;
     anneeMoniteur!:string;
     descriptionMoniteur!:string;
-    telephoneMoniteur!:string;
+    telephoneMoniteur!:number;
     emailMoniteur!:string;
    //autoEcole!:AutoEcole;
 }
