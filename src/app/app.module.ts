@@ -14,11 +14,15 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ReponseService } from './services/reponse.service';
 import { CoursService } from './services/cours.service';
-import { EditcoursComponent } from './editcours/editcours.component';
 import { Observable } from 'rxjs';
-import { InscriptionComponent } from './inscription/inscription.component';
 import { UtilisateurService } from './services/utilisateur.service';
 import { EdituserComponent } from './edituser/edituser.component';
+import { TestService } from './services/test.service';
+import { EditcoursComponent } from './editcours/editcours.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { ExamenFinalService } from './services/examenfinal.service';
+import { ExamenBlancService } from './services/examenblanc.service';
+
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor{
@@ -49,8 +53,9 @@ export class XhrInterceptor implements HttpInterceptor{
     InscriptionComponent,
     EdituserComponent,
   ],
+  
+  providers: [TestService,ReponseService,ReponseService,CoursService,UtilisateurService,ExamenBlancService,ExamenFinalService,{provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}],
 
-  providers: [ReponseService,CoursService,UtilisateurService,{provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}],
 
   bootstrap: [AppComponent]
 })
