@@ -13,7 +13,14 @@ import { MoniteurService } from './services/moniteur.service';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+<<<<<<< HEAD
 import { EditUserComponent } from './edit-user/edit-user.component';
+=======
+import { TestService } from './services/test.service';
+import { ReponseService } from './services/reponse.service';
+import { CoursService } from './services/cours.service';
+
+>>>>>>> 845015224c7b96d35ea4c17401f975241ff1626e
 
 @NgModule({
   imports: [
@@ -32,7 +39,13 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     AdminLayoutComponent,
     EditUserComponent,
   ],
+<<<<<<< HEAD
   providers: [MoniteurService],
+=======
+
+  providers: [TestService,ReponseService,CoursService],
+
+>>>>>>> 845015224c7b96d35ea4c17401f975241ff1626e
   bootstrap: [AppComponent]
 })
 export class AppModule { }

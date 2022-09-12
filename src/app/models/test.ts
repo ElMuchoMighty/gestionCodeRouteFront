@@ -1,6 +1,4 @@
-import { file_v1 } from "googleapis";
-import { ExamenBlanc } from "./examen-blanc";
-import { ExamenFinal } from "./examen-final";
+
 import { Reponse } from "./reponse";
 
 export class Test {
