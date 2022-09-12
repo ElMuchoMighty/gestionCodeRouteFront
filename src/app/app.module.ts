@@ -15,6 +15,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { TestService } from './services/test.service';
 import { ReponseService } from './services/reponse.service';
 import { CoursService } from './services/cours.service';
+import { ExamenBlancService } from './services/examenblanc.service';
+import { ExamenFinalService } from './services/examenfinal.service';
 
 
 @NgModule({
@@ -33,7 +35,7 @@ import { CoursService } from './services/cours.service';
     AdminLayoutComponent,
   ],
 
-  providers: [TestService,ReponseService,CoursService],
+  providers: [TestService,ReponseService,CoursService,ExamenBlancService,ExamenFinalService],
 
   bootstrap: [AppComponent]
 })
