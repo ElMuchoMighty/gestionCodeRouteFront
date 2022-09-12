@@ -1,0 +1,103 @@
+<div class="main-content" >
+    <div class="container-fluid">
+       
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Inscription</h4>
+                    </div>
+                    <div class="content">
+                        <form (ngSubmit)="save()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Nom</label>
+                                        <input type="text" class="form-control" placeholder="Entrez votre nom" [(ngModel)]="utilisateur.nomUtilisateur" name="nomUtilisateur">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Prenom</label>
+                                        <input type="text" class="form-control" placeholder="Entrez votre Username" [(ngModel)]="utilisateur.prenomUtilisateur" name="prenomUtilisateur">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" class="form-control" placeholder="Email" [(ngModel)]="utilisateur.emailUtilisateur" name="emailUtilisateur">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Date de Naissance</label>
+                                        <input type="date" class="form-control" placeholder="Entrez votre date de Naissance" [(ngModel)]="utilisateur.dateNaissanceUtilisateur" name="dateNaissanceUtilisateur">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control" placeholder="Entrez votre Username"[(ngModel)]="utilisateur.username" name="username">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control" placeholder="Entrez votre Password"[(ngModel)]="utilisateur.password" name="password">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-info btn-fill pull-right">S'inscrire</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="header">
+                        <h4 class="title">Table on Plain Background</h4>
+                        <p class="category">Here is a subtitle for this table</p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Nom</th>
+                                    <th>Prenom</th>
+                                    <th>Email</th>
+                                    <th>Date de Naissance</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                    <th>Téléphone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let u of users">
+                                    <td>{{u.idUtilisateur}}</td>
+                                    <td>{{u.nomUtilisateur}}</td>
+                                    <td>{{u.prenomUtilisateur}}</td>
+                                    <td>{{u.emailUtilisateur}}</td>
+                                    <td>{{u.dateNaissanceUtilisateur}}</td>
+                                    <td>{{u.username}}</td>
+                                    <td>{{u.password}}</td>
+                                    <td>{{u.telephone}}</td>
+                                    <td><button (click)="supprimer(u.idUtilisateur)" class="btn btn-secondary">Supprimer</button></td>
+                                    <td><button (click)="editUser(u)" class="btn btn-secondary">Editer</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

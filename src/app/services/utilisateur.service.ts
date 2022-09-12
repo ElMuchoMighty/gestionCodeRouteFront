@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CoursService {
+export class UtilisateurService {
   private baseUrl = "http://localhost:7070/utilisateurs";
   constructor(private httpClient:HttpClient) { }
 
@@ -18,10 +18,12 @@ export class CoursService {
   public save (utilisateurs:any):Observable<any>{
     return this.httpClient.post(this.baseUrl,utilisateurs);
   }
-  public update (utilisateurs:any):Observable<any>{
-    return this.httpClient.put(this.baseUrl,utilisateurs);
-  }
   public delete(id:number):Observable<any>{
     return this.httpClient.delete(this.baseUrl+"/"+id); //http://localhost:7070/Cours/1
   }
+  public updateUtilisateur(user:any):Observable<any>{
+    var userParse = JSON.parse(user);
+    return this.httpClient.put(this.baseUrl+'/'+userParse.idUtilisateur,userParse);
+  }
+
 }
