@@ -21,6 +21,11 @@ export class TypographyComponent implements OnInit {
    // this.users = this.utilisateurService.users;
    this.findAllCours();
   }
+  stats(){
+    
+    this.router.navigate(['/statistique']);
+    
+  }
   findAllCours(){
     this.coursService.findAll().subscribe(data => {this.classes = data;})
   }
@@ -109,6 +114,17 @@ rs(id:number) {
                 this.Titre = 'Eco-conduite';
                 }
                
-            
+                authenticated(){
+                  return this.appService.authenticated;//false
+                }
+                authorities(){
+                  if(this.appService.isAdmin ==true){
+                    return false; 
+                  }else{
+                    return true
+                  }
+                }
+
+               
               }
 

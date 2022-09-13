@@ -8,10 +8,14 @@ import { TypographyComponent } from './typography/typography.component';
 import { UserComponent } from './user/user.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { EdituserComponent } from './edituser/edituser.component';
+import { StatistiqueComponent } from './statistique/statistique.component';
 
 const routes: Routes =[
 
   {
+    path: 'statistique', // localhost:4200/editUser/4
+    component: StatistiqueComponent
+  },{
     path: 'cours', // localhost:4200/utilisateur
     component : EditcoursComponent
   },{
