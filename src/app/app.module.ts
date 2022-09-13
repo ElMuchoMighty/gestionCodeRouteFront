@@ -20,15 +20,12 @@ import { EditcoursComponent } from './editcours/editcours.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ExamenFinalService } from './services/examenfinal.service';
 import { ExamenBlancService } from './services/examenblanc.service';
-<<<<<<< HEAD
 import { EditAutoecoleComponent } from './editautoecole/editautoecole.component';
 import { EditRendezvousComponent } from './editrendezvous/editrendezvous.component';
 import { EditMoniteurComponent } from './editmoniteur/editmoniteur.component';
-
-=======
 import { BrowserModule } from '@angular/platform-browser';
 import { StatistiqueComponent } from './statistique/statistique.component';
->>>>>>> master
+
 
 
 
@@ -61,14 +58,10 @@ export class XhrInterceptor implements HttpInterceptor{
     EditcoursComponent,
     InscriptionComponent,
     EdituserComponent,
-<<<<<<< HEAD
     EditAutoecoleComponent,
     EditRendezvousComponent,
     EditMoniteurComponent,
-    
-=======
     StatistiqueComponent,
->>>>>>> master
   ],
   
   providers: [MoniteurService,TestService,ReponseService,ReponseService,CoursService,UtilisateurService,ExamenBlancService,ExamenFinalService,{provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}],
