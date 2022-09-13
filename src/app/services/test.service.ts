@@ -21,6 +21,8 @@ export class TestService {
     formData.append('question',test.question);
     formData.append('codeBonneReponse',test.codeBonneReponse.toString());
     formData.append('timerRep',test.timerRep.toString());
+    formData.append('idExamenBlanc',test.idExamenBlancRef.toString());
+    formData.append('idExamenFinal',test.idExamenFinalRef.toString());
     const requete = new HttpRequest('POST',this.baseUrl,formData,
     {reportProgress:true,responseType:'text'});
     return this.httpClient.request(requete);
