@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from 'app/app.service';
 import { Utilisateur } from 'app/models/utilisateur';
 
 @Component({
@@ -8,9 +10,12 @@ import { Utilisateur } from 'app/models/utilisateur';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
-  constructor(private router:Router) { }
-
+  credentials = {username: '', password:''}
+  constructor(private appService:AppService, private httpClient:HttpClient,private router:Router) { }
+login(){
+  this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("/typography")});
+  return false;
+}
   ngOnInit() {
   }
   inscrire(){

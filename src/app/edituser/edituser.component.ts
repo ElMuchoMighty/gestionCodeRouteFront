@@ -26,7 +26,12 @@ export class EdituserComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       idUtilisateur:[],
       nomUtilisateur: ['',Validators.required],
-      prenomUtilisateur:['',Validators.required]
+      prenomUtilisateur:['',Validators.required],
+      username:['',Validators.required],
+      password:['',Validators.required],
+      dateNaissanceUtilisateur:['',Validators.required],
+      emailUtilisateur:['',Validators.required],
+      telUtilisateur:['',Validators.required]
     })
     this.utilisateurService.findOne(+userId).
     subscribe(data => {this.editForm.setValue(data)});  
@@ -35,6 +40,8 @@ export class EdituserComponent implements OnInit {
   updateUtilisateur(){
     var userJson = JSON.stringify(this.editForm.value);
     this.utilisateurService.updateUtilisateur(userJson).
-    subscribe(()=>{this.router.navigate(['/utilisateur'])});
+    subscribe(()=>{this.router.navigate(['/user'])});
   }
+
+  
 }

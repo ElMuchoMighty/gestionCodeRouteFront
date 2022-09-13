@@ -24,6 +24,7 @@ declare interface TableData {
 })
 export class TablesComponent implements OnInit {
 tests!:any[];
+tests2!:any[];
 reponses!:any[];
 examenBlancs!:any[];
 examenFinals!:any[];
@@ -33,17 +34,22 @@ examenBlanc:ExamenBlanc = new ExamenBlanc;
 examenFinal:ExamenFinal = new ExamenFinal;
 selectedFiles:FileList;
 currentFileUpload:File;
-score=0
+score=0;
+idRef=0;
+idRefFinal=0;
+scoreF=0;
   constructor(private testService:TestService,private reponseService:ReponseService,private examenBlancService:ExamenBlancService,private examenFinalService:ExamenFinalService) { }
 
   ngOnInit() {
     this.findAllTest();
     this.findAllReponse();
     this.findAllExamenBlanc();
+    this.findAllExamenFinal();
   }
 findAllTest(){
     this.testService.findAll().subscribe(data => {this.tests = data})
 }
+
 findAllReponse(){
     this.reponseService.findAll().subscribe(data => {this.reponses = data})
 }
@@ -76,7 +82,7 @@ saveExamenBlanc(){
 }
 
 findAllExamenFinal(){
-  this.examenFinalService.findAll().subscribe(data => {this.examenFinals})
+  this.examenFinalService.findAll().subscribe(data => {this.examenFinals = data})
 }
 
 saveExamenFinal(){
@@ -107,8 +113,14 @@ deleteReponse(id:number){
     }else{
       this.score=score-1
     }
+  }
 
-   
+  answerF(id1:number,id2:number,scoreF:number){
+    if (id1==id2){
+      this.scoreF=scoreF+1
+    }else{
+      this.scoreF=scoreF-1
+    }
   }
 
 }
