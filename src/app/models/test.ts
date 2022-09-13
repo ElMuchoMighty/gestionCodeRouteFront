@@ -9,6 +9,8 @@ export class Test {
     question!:string;
     codeBonneReponse!:number;
     timerRep!:number;
+    idExamenBlancRef!:number;
+    idExamenFinalRef!:number;
     examenBlanc!:ExamenBlanc[];
     examenFinal!:ExamenFinal[];
 }

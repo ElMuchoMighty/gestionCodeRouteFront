@@ -20,20 +20,6 @@
                             <div class="row">
                                 <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>iD de l' exam correspondant</label>
-                                    <select  name="examenBlanc" [(ngModel)]="test.examenBlanc">
-                                        <option *ngFor="let eb of examenBlancs" [ngValue]="eb">
-                                            {{eb.idExamenBlanc}}
-                                        </option>
-                                    </select>                                 
-                                </div>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                <div class="form-group">
                                   <label>Image</label>
                                   <input type="file" (change)="selectFile($event)" name="image">
                                 </div>
@@ -59,6 +45,40 @@
                                 </div>
                                </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>iD de l' exam correspondant blanc</label>
+                                    <select  name="idExamenBlanc" [(ngModel)]="test.idExamenBlancRef">
+                                        <option *ngFor="let eb of examenBlancs" [ngValue]="eb.idExamenBlanc">
+                                            {{eb.idExamenBlanc}}
+                                        </option>
+                                    </select>                                 
+                                </div>
+                                </div>
+                            </div>
+                            <div>
+                                {{test.idExamenBlancRef}}
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>iD de l' exam correspondant Final</label>
+                                    <select  name="idExamenFinal" [(ngModel)]="test.idExamenFinalRef">
+                                        <option *ngFor="let ef of examenFinals" [ngValue]="ef.idExamenFinal">
+                                            {{ef.idExamenFinal}}
+                                        </option>
+                                    </select>                                 
+                                </div>
+                                </div>
+                            </div>
+                            <div>
+                                {{test.idExamenFinalRef}}
+                            </div>
+
+
                             <form (ngSubmit)="saveReponse()">
                                 <div class="row">
                                     <div class="col-md-4">            
@@ -124,11 +144,8 @@
 
                                     <table>
                                         <tr *ngFor="let r of reponses">
-                                            <td>{{r.codeReponse}}</td>
                                         <div *ngIf="r.test.idTest==t.idTest">
                                         
-                                        
-                                         <td>{{r.codeReponse}}</td>
                                          <td>{{r.contenuReponse}}</td>
                                         <td><button (click)="deleteReponse(r.idReponse)" class="btn btn-danger pull-right">Delete</button></td>
                                     </div>
@@ -147,8 +164,22 @@
         </div>
 
 
+        <div>
+        <label>iD de l' exam  blanc choisie</label>
+        <select  name="idRef" [(ngModel)]="idRef">
+            <option *ngFor="let eb of examenBlancs" [ngValue]="eb.idExamenBlanc">
+                {{eb.idExamenBlanc}}
+            </option>
+        </select> 
+
+        {{idRef}}
+         </div>
+        
+
+         
+        
         <h4>Score: {{score}}</h4>
-        <div class="col-md-12">
+         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-danger">
                     <h4 class="card-title ">Liste des questions Examens</h4>
@@ -164,37 +195,113 @@
                                 <th>
                                    question
                                 </th>
+                                <th>
+                                    reponses
+                                </th>
+
                             </thead>
                             <tbody>
                               
-                              <tr *ngFor="let t of tests">
-                                  
+                                <ng-container *ngFor="let t of tests">
+                             <tr *ngIf="t.examenBlanc.idExamenBlanc==idRef">
                               <td><img src="data:image/jpeg;base64,{{t.image}}" height="120" width="120"/></td>
                                 <td>{{t.question}}</td>
                                 <td>
 
                                   <table border="2">
-                                      <tr *ngFor="let r of reponses">
-                                      <cond *ngIf="r.test.idTest==t.idTest">
-                                      
-                                      
+                                    <ng-container *ngFor="let r of reponses">
+                                      <tr *ngIf="r.test.idTest==t.idTest">   
                                       <td>{{r.contenuReponse}}</td>
-                                      <td>|____________ |</td>
-
                                       <td><button (click)="answer(r.codeReponse,t.codeBonneReponse,score)" class="btn btn-danger pull-right">Reponse {{r.codeReponse}}</button></td>
-                                      </cond>
+                                
                                        </tr>
+                                    </ng-container>
                                      
                                    </table>
 
                                   </td> 
-                              </tr>
+                                </tr>
+                                </ng-container>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+
+  
+
+
+
+
+        <div>
+            <label>iD du sujet de l'exam final</label>
+            <select  name="idRefFinal" [(ngModel)]="idRefFinal">
+                <option *ngFor="let ef of examenFinals" [ngValue]="ef.idExamenFinal">
+                    {{ef.idExamenFinal}}
+                </option>
+            </select> 
+    
+            {{idRefFinal}}
+         </div>
+
+
+         <h4>Score FINAL: {{scoreF}}</h4>
+         <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title ">Liste des questions Examens</h4>
+                    <p class="card-category">veuillez répondre aux questions</p>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <th>
+                                   image
+                                </th>
+                                <th>
+                                   question
+                                </th>
+                                <th>
+                                    reponses
+                                </th>
+
+                            </thead>
+                            <tbody>
+                              
+                                <ng-container *ngFor="let t of tests">
+                                    {{t.examenFinal.idExamenFinal}}
+                             <tr *ngIf="t.examenFinal.idExamenFinal==idRefFinal">
+                              <td><img src="data:image/jpeg;base64,{{t.image}}" height="120" width="120"/></td>
+                                <td>{{t.question}}</td>
+                                <td>
+
+                                  <table border="2">
+                                    <ng-container *ngFor="let r of reponses">
+                                      <tr *ngIf="r.test.idTest==t.idTest">   
+                                      <td>{{r.contenuReponse}}</td>
+                                      <td><button (click)="answerF(r.codeReponse,t.codeBonneReponse,scoreF)" class="btn btn-danger pull-right">Reponse {{r.codeReponse}}</button></td>
+                                
+                                       </tr>
+                                    </ng-container>
+                                     
+                                   </table>
+
+                                  </td> 
+                                </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
 
 
     </div>
