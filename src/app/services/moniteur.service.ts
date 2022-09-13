@@ -1,29 +1,36 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest } from "@angular/common/http";
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-/*
+import { Moniteur } from "app/models/moniteur";
+import { Observable } from "rxjs";
+
 @Injectable({
   providedIn: 'root'
 })
-export class CoursService {
-  private baseUrl = "http://localhost:7070/moniteurs";
-  constructor(private httpClient:HttpClient) { }
-
-  public findAll() : Observable<any>{
-    return this.httpClient.get(this.baseUrl); // http:localhost:7070/utilisateurs: le verbe get => afficher la liste des utilisateurs
-  }
-  public findOne(id:number) : Observable<any>{
-    return this.httpClient.get(this.baseUrl+"/"+id);
-  }
-  public save (moniteurs:any):Observable<any>{
-    return this.httpClient.post(this.baseUrl,moniteurs);
-  }
-  public update (moniteurs:any):Observable<any>{
-    return this.httpClient.put(this.baseUrl,moniteurs);
-  }
-  public delete(id:number):Observable<any>{
-    return this.httpClient.delete(this.baseUrl+"/"+id); //http://localhost:7070/Cours/1
+export class MoniteurService {
+    private baseUrl = "http://localhost:7070/moniteurs";
+  
+  
+    constructor(private httpClient:HttpClient) { }
+  
+    public findAll() : Observable<any>{
+      return this.httpClient.get(this.baseUrl);
+    }
+  
+    public save(moniteur:any) : Observable<any>{
+      return this.httpClient.post(this.baseUrl,moniteur);
+    }
+    
+  
+    public delete(id:number) : Observable<any>{
+      return this.httpClient.delete(this.baseUrl+"/"+id);
+    }
+    public getMoniteur(id:number):Observable<any>{
+      return this.httpClient.get(this.baseUrl+'/'+id);
+    }
+    public updateMoniteur(user:any):Observable<any>{
+      var userParse = JSON.parse(user);
+      return this.httpClient.put(this.baseUrl+'/'+userParse.idMoniteur,userParse);
+    }
+  
   }
   
-}
-*/

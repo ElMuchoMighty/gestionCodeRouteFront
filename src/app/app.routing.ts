@@ -1,12 +1,38 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-
+import { EditcoursComponent } from './editcours/editcours.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import path = require('path');
+import { TypographyComponent } from './typography/typography.component';
+import { UserComponent } from './user/user.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { EdituserComponent } from './edituser/edituser.component';
+
 
 const routes: Routes =[
+
   {
+    path: 'cours', // localhost:4200/utilisateur
+    component : EditcoursComponent
+  },{
+    path: 'editcours/:id', // localhost:4200/editUser/4
+    component: EditcoursComponent
+  },{
+    path: 'utilisateur', // localhost:4200/utilisateur
+    component : InscriptionComponent
+  },{
+    path: 'edituser/:id', // localhost:4200/editUser/4
+    component: EdituserComponent
+  },{
+    path:'login',
+    component : UserComponent
+  },{
+    path:'inscription',
+    component : InscriptionComponent
+  },{
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',

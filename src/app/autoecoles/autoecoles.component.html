@@ -1,0 +1,128 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Ajouter un Moniteur</h4>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="save()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <li class="example-full-width">
+                                    <input placeholder="Nom" type="text" [(ngModel)]="moniteur.nomMoniteur" name="nomMoniteur">
+                                  </li>
+                                </div>
+                                <div class="col-md-6">
+                                  <li class="example-full-width">
+                                    <input placeholder="Prénom" type="text" [(ngModel)]="moniteur.prenomMoniteur" name="prenomMoniteur">
+                                  </li>
+                                </div>   
+                                <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="Anneeexperience" type="text" [(ngModel)]="moniteur.anneeMoniteur" name="anneeMoniteur">
+                                    </li>
+                                </div>   
+                                <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="DescriptionMoniteur" type="text" [(ngModel)]="moniteur.descriptionMoniteur" name="descriptionMoniteur">
+                                    </li>
+                                </div>   
+                                <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="EmailMoniteur" type="text" [(ngModel)]="moniteur.emailMoniteur" name="emailMoniteur">
+                                    </li>
+                                </div>    
+                                <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="TelephoneMoniteur" type="text" [(ngModel)]="moniteur.telephoneMoniteur" name="telephoneMoniteur">
+                                    </li>
+                                </div>                             
+                            </div>
+
+                            <!--
+                            <div class="row">
+                              <label>Image</label>
+                              <input type="file" (change)="selectFile($event)" name="image">
+                            </div>   
+                            -->                          
+                            <button class="btn btn-danger pull-right">Ajouter</button>
+                            <div class="clearfix"></div>
+                        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title ">Simple Table</h4>
+                    <p class="card-category"> Here is a subtitle for this table</p>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                           <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Nom
+                                    </th>
+                                    <th>
+                                        Prénom
+                                    </th>
+                                    <th>
+                                        Annee d experience
+                                    </th>
+                                    <th>
+                                        Description Moniteur
+                                    </th>
+                                    <th>
+                                        email Moniteur
+                                    </th>
+                                    <th>
+                                        Telephone Moniteur
+                                    </th>                   
+                                    <th>
+                                        Supprimer
+                                    </th>
+                                    <th>
+                                        Modifier
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let m of users">
+                                        <td>{{m.nomMoniteur}}</td>
+                                        <td>{{m.prenomMoniteur}}</td>   
+                                        <td>{{m.anneeMoniteur}}</td>    
+                                        <td>{{m.decriptionMoniteur}}</td>    
+                                        <td>{{m.emailMoniteur}}</td>    
+                                        <td>{{m.telephoneMoniteur}}</td>    
+ 
+                                        <!--<img src="data:image/jpeg;base64,{{m.image}}" height="120" width="120">-->
+                                        
+                                        <td><button class="btn btn-danger pull-right" (click)="delete(m.idMoniteur)">Delete</button></td>
+                                        <td><button class="btn btn-danger pull-right" (click)="editUser(m)">Update</button></td>
+                                    </tr>
+                                   <!--
+                                    <tr *ngFor="let m of users">
+                                        <td>{{m.nomMoniteur}}</td>
+                                        <td>{{m.prenomMoniteur}}</td>
+                                        <td>{{m.anneeMoniteur}}</td>    
+                                        <td>{{m.decriptionMoniteur}}</td>    
+                                        <td>{{m.emailMoniteur}}</td>    
+                                        <td>{{m.telephoneMoniteur}}</td>
+                                    </tr>
+                                    -->
+                                </tbody>
+                             </table>                    
+                          </div>
+                      </div>
+                 </div>
+             </div>
+        </div>
+    </div>
+</div>
+
+

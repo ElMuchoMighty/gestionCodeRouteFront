@@ -1,0 +1,19 @@
+<div>
+    <h1>Mise à jour d'un utilisateur</h1>
+    <form [formGroup]="editForm">
+        <table>
+            <tr>
+                <td>Nom</td>
+                <td><input type="text" [(ngModel)]="utilisateur.nomUtilisateur" formControlName="nomUtilisateur"/></td>
+            </tr>
+            <tr>
+                <td>Prénom</td>
+                <td><input type="text" [(ngModel)]="utilisateur.prenomUtilisateur" formControlName="prenomUtilisateur"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button (click)="updateUtilisateur()">Ajouter</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
