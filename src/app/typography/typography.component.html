@@ -1,4 +1,4 @@
-<!--<div [hidden]="!authenticated()"></div>-->
+<div [hidden]="!authenticated()">
 <div class="main-content" >
     <div class="container-fluid">
         <div class="row">
@@ -17,6 +17,7 @@
                                 </div>
                     </div>
                     <h1><span myDirective>{{Titre}}</span></h1>
+                    <h5>Venez admirer nos statistiques</h5><span><button (click)="stats()" type="button" class="btn btn-secondary">nos statistiques</button></span><h5>de pro</h5>
                     <span myDirective>{{contenus}}</span>
                     <div class="row">
                         <div class="col-md-12">
@@ -53,6 +54,7 @@
         </div>
     </div>
 </div>
-<!--<div [hidden]="authenticated()">
+</div>
+<div [hidden]="authenticated()">
     <p>Connectez-vous pour afficher l'interface des utilisateurs</p>
-</div>-->
+</div>

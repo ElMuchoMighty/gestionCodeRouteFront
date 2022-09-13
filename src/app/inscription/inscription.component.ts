@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Utilisateur } from 'app/models/utilisateur';
+import { RoleService } from 'app/services/role.service';
 import { UtilisateurService } from 'app/services/utilisateur.service';
 
 @Component({
@@ -10,11 +11,13 @@ import { UtilisateurService } from 'app/services/utilisateur.service';
 })
 export class InscriptionComponent implements OnInit {
   users!: any[]; 
+  roles!: any[];
   utilisateur:Utilisateur=new Utilisateur();
-  constructor(private utilisateurService:UtilisateurService, private router:Router) { }
+  constructor(private utilisateurService:UtilisateurService, private router:Router, private roleService:RoleService) { }
 
   ngOnInit(): void {
     this.findAllUtilisateur();
+    this.findAllRoles();
   }
 
   findAllUtilisateur(){
@@ -45,5 +48,7 @@ export class InscriptionComponent implements OnInit {
  
   }
 
-
+  findAllRoles(){
+    this.roleService.findAll().subscribe(data => {this.roles = data;})
+  }
 }

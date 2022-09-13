@@ -5,23 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CoursService {
+export class RoleService {
   private baseUrl = "http://localhost:7070/roles";
   constructor(private httpClient:HttpClient) { }
 
   public findAll() : Observable<any>{
     return this.httpClient.get(this.baseUrl); // http:localhost:7070/utilisateurs: le verbe get => afficher la liste des utilisateurs
-  }
-  public findOne(id:number) : Observable<any>{
-    return this.httpClient.get(this.baseUrl+"/"+id);
-  }
-  public save (roles:any):Observable<any>{
-    return this.httpClient.post(this.baseUrl,roles);
-  }
-  public update (roles:any):Observable<any>{
-    return this.httpClient.put(this.baseUrl,roles);
-  }
-  public delete(id:number):Observable<any>{
-    return this.httpClient.delete(this.baseUrl+"/"+id); //http://localhost:7070/Cours/1
   }
 }

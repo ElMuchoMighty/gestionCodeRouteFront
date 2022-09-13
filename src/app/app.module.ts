@@ -21,6 +21,8 @@ import { EditcoursComponent } from './editcours/editcours.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ExamenFinalService } from './services/examenfinal.service';
 import { ExamenBlancService } from './services/examenblanc.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { StatistiqueComponent } from './statistique/statistique.component';
 
 
 
@@ -44,7 +46,8 @@ export class XhrInterceptor implements HttpInterceptor{
     FooterModule,
     SidebarModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserModule
   ],
   declarations: [
     AppComponent,
@@ -53,6 +56,7 @@ export class XhrInterceptor implements HttpInterceptor{
     EditcoursComponent,
     InscriptionComponent,
     EdituserComponent,
+    StatistiqueComponent,
   ],
   
   providers: [MoniteurService,TestService,ReponseService,ReponseService,CoursService,UtilisateurService,ExamenBlancService,ExamenFinalService,{provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}],
