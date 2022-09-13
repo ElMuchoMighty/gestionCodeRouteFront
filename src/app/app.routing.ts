@@ -4,7 +4,6 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { EditcoursComponent } from './editcours/editcours.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
 import path = require('path');
 import { TypographyComponent } from './typography/typography.component';
 import { UserComponent } from './user/user.component';

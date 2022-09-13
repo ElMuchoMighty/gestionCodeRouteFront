@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CoursService {
+export class AutoecoleService {
   private baseUrl = "http://localhost:7070/autoEcoles";
   constructor(private httpClient:HttpClient) { }
 
@@ -15,11 +15,14 @@ export class CoursService {
   public findOne(id:number) : Observable<any>{
     return this.httpClient.get(this.baseUrl+"/"+id);
   }
-  public save (autoEcoles:any):Observable<any>{
+  public saveAutoecole(autoEcoles:any):Observable<any>{
     return this.httpClient.post(this.baseUrl,autoEcoles);
   }
-  public update (autoEcoles:any):Observable<any>{
+  public update(autoEcoles:any):Observable<any>{
     return this.httpClient.put(this.baseUrl,autoEcoles);
+  }
+  public get(id:number):Observable<any>{
+    return this.httpClient.get(this.baseUrl+'/'+id);
   }
   public delete(id:number):Observable<any>{
     return this.httpClient.delete(this.baseUrl+"/"+id); //http://localhost:7070/Cours/1

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CoursService {
+export class RendezvousService {
   private baseUrl = "http://localhost:7070/rendezVous";
   constructor(private httpClient:HttpClient) { }
 
@@ -17,6 +17,9 @@ export class CoursService {
   }
   public save (rendezVous:any):Observable<any>{
     return this.httpClient.post(this.baseUrl,rendezVous);
+  }
+  public get(id:number):Observable<any>{
+    return this.httpClient.get(this.baseUrl+'/'+id);
   }
   public update (rendezVous:any):Observable<any>{
     return this.httpClient.put(this.baseUrl,rendezVous);
