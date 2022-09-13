@@ -10,7 +10,6 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { MoniteurService } from './services/moniteur.service';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
 import { ReponseService } from './services/reponse.service';
 import { CoursService } from './services/cours.service';
 import { Observable } from 'rxjs';
@@ -21,8 +20,12 @@ import { EditcoursComponent } from './editcours/editcours.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ExamenFinalService } from './services/examenfinal.service';
 import { ExamenBlancService } from './services/examenblanc.service';
+import { EditAutoecoleComponent } from './editautoecole/editautoecole.component';
+import { EditRendezvousComponent } from './editrendezvous/editrendezvous.component';
+import { EditMoniteurComponent } from './editmoniteur/editmoniteur.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { StatistiqueComponent } from './statistique/statistique.component';
+
 
 
 
@@ -51,11 +54,13 @@ export class XhrInterceptor implements HttpInterceptor{
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-    EditUserComponent,
+    AdminLayoutComponent,    
     EditcoursComponent,
     InscriptionComponent,
     EdituserComponent,
+    EditAutoecoleComponent,
+    EditRendezvousComponent,
+    EditMoniteurComponent,
     StatistiqueComponent,
   ],
   
