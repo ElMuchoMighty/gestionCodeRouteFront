@@ -13,8 +13,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/table', title: 'Examen',  icon:'pe-7s-note2', class: '' },
     { path: '/typography', title: 'Cours',  icon:'pe-7s-news-paper', class: '' },
     { path: '/icons', title: 'Icons',  icon:'pe-7s-science', class: '' },
-    { path: '/maps', title: 'Login',  icon:'pe-7s-map-marker', class: '' },
-    { path: '/Auto Ecole', title: 'Auto Ecole',  icon:'pe-7s-bell', class: '' },
+    { path: '/maps', title: 'Maps',  icon:'pe-7s-map-marker', class: '' },
+    { path: '/autoecoles', title: 'Auto Ecole',  icon:'pe-7s-bell', class: '' },
     { path: '/upgrade', title: 'Upgrade to PRO',  icon:'pe-7s-rocket', class: 'active-pro' },
 ];
 
