@@ -7,6 +7,7 @@ import { Observable } from "rxjs";
   providedIn: 'root'
 })
 export class MoniteurService {
+    
     private baseUrl = "http://localhost:7070/moniteurs";
   
   
@@ -14,6 +15,9 @@ export class MoniteurService {
   
     public findAll() : Observable<any>{
       return this.httpClient.get(this.baseUrl);
+    }
+    public findOne(id:number) : Observable<any>{
+      return this.httpClient.get(this.baseUrl+"/"+id);
     }
   
     public save(moniteur:any) : Observable<any>{

@@ -4,17 +4,20 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { EditcoursComponent } from './editcours/editcours.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
 import path = require('path');
 import { TypographyComponent } from './typography/typography.component';
 import { UserComponent } from './user/user.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { EdituserComponent } from './edituser/edituser.component';
+import { StatistiqueComponent } from './statistique/statistique.component';
 
 
 const routes: Routes =[
 
   {
+    path: 'statistique', // localhost:4200/editUser/4
+    component: StatistiqueComponent
+  },{
     path: 'cours', // localhost:4200/utilisateur
     component : EditcoursComponent
   },{

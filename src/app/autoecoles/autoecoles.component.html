@@ -4,6 +4,199 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header card-header-danger">
+                        <div class="btn-group-center mb-3" role="group" aria-label="Groupe de boutons" >
+                            <button (click)="es(1)" (click)="es1()" type="button" class="btn btn-info">Auto-Ecoles</button>
+                            <button (click)="rs(2)" (click)="rs1()" type="button" class="btn btn-secondary">Rendez-vous</button>
+                            <button (click)="c(3)" (click)="c1()" type="button" class="btn btn-info">Moniteur</button>                                    
+                        </div>
+                        <h1><span myDirective>{{Titre}}</span></h1>
+                        <span myDirective>{{contenus}}</span>
+                    </div>
+
+
+                    <!--
+                    <div class="row">
+                        <div class="card-body">
+                            <form (ngSubmit)="save()">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                    <li class="example-full-width">
+                                        <input placeholder="Nom" type="text" [(ngModel)]="moniteur.nomMoniteur" name="nomMoniteur">
+                                    </li>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <li class="example-full-width">
+                                        <input placeholder="Prénom" type="text" [(ngModel)]="moniteur.prenomMoniteur" name="prenomMoniteur">
+                                    </li>
+                                    </div>   
+                                    <div class="col-md-6">
+                                        <li class="example-full-width">
+                                        <input placeholder="Anneeexperience" type="text" [(ngModel)]="moniteur.anneeMoniteur" name="anneeMoniteur">
+                                        </li>
+                                    </div>   
+                                    <div class="col-md-6">
+                                        <li class="example-full-width">
+                                        <input placeholder="DescriptionMoniteur" type="text" [(ngModel)]="moniteur.descriptionMoniteur" name="descriptionMoniteur">
+                                        </li>
+                                    </div>   
+                                    <div class="col-md-6">
+                                        <li class="example-full-width">
+                                        <input placeholder="EmailMoniteur" type="text" [(ngModel)]="moniteur.emailMoniteur" name="emailMoniteur">
+                                        </li>
+                                    </div>    
+                                    <div class="col-md-6">
+                                        <li class="example-full-width">
+                                        <input placeholder="TelephoneMoniteur" type="text" [(ngModel)]="moniteur.telephoneMoniteur" name="telephoneMoniteur">
+                                        </li>
+                                    </div>                             
+                                </div>
+
+                            -->
+                            
+
+                                <!--
+                                <div class="row">
+                                <label>Image</label>
+                                <input type="file" (change)="selectFile($event)" name="image">
+                                </div>   
+                                -->      
+                                <!--                    
+                                <button class="btn btn-danger pull-right">Ajouter</button>
+                                <div class="clearfix"></div>
+
+                            </form>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    -->
+       
+        <!--FORMULAIRE AUTO ECOLE-->
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Ajouter une auto ecole</h4>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="saveAutoecole()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <li class="example-full-width">
+                                    <input placeholder="adresseAutoEcole" type="text" [(ngModel)]="autoecole.adresseAutoEcole" name="adresseAutoEcole">
+                                  </li>
+                                </div>
+                                <div class="col-md-6">
+                                  <li class="example-full-width">
+                                    <input placeholder="emailAutoEcole" type="text" [(ngModel)]="autoecole.emailAutoEcole" name="emailAutoEcole">
+                                  </li>
+                                </div>                                  
+                                <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="telephoneAutoEcole" type="text" [(ngModel)]="autoecole.telephoneAutoEcole" name="telephoneAutoEcole">
+                                    </li>
+                                </div>   
+                                <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="enseigneAutoEcole" type="text" [(ngModel)]="autoecole.enseigneAutoEcole" name="enseigneAutoEcole">
+                                    </li>
+                                </div>   
+                                <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="utilisateurAutoEcole" type="text" [(ngModel)]="autoecole.utilisateurAutoEcole" name="utilisateurAutoEcole">
+                                    </li>
+                                </div>    
+                                <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="moniteurAutoEcole" type="text" [(ngModel)]="autoecole.moniteurAutoEcole" name="moniteurAutoEcole">
+                                    </li>
+                                </div>
+                                <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="rendezVousAutoEcole" type="text" [(ngModel)]="autoecole.rendezVousAutoEcole" name="rendezVousAutoEcole">
+                                    </li>
+                                </div>  
+                            </div>
+                                                   
+                            <button class="btn btn-danger pull-right">Ajouter</button>
+                            <div class="clearfix"></div>
+                        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title ">Les auto ecoles</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                           <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        adresseAE
+                                    </th>
+                                    <th>
+                                        emailAE
+                                    </th>
+                                    <th>
+                                        telephoneAE
+                                    </th>
+                                    <th>
+                                        enseigneAE
+                                    </th>
+                                    <th>
+                                        utilisateurAE
+                                    </th>
+                                    <th>
+                                        moniteurAE
+                                    </th>     
+                                    <th>
+                                        rendezVousAE
+                                    </th>
+                                    <th>
+                                        Supprimer
+                                    </th>
+                                    <th>
+                                        Modifier
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let ae of autoecoles">
+                                        <td>{{ae.adresseAutoEcole}}</td>
+                                        <td>{{ae.emailAutoEcole}}</td>   
+                                        <td>{{ae.telephoneAutoEcole}}</td>    
+                                        <td>{{ae.enseigneAutoEcole}}</td>    
+                                        <td>{{ae.utilisateurAutoEcole}}</td>    
+                                        <td>{{ae.moniteurAutoEcole}}</td> 
+                                        <td>{{ae.rendezVousAutoEcole}}</td>   
+ 
+                                        <!--<img src="data:image/jpeg;base64,{{m.image}}" height="120" width="120">-->
+                                        
+                                        <td><button class="btn btn-danger pull-right" (click)="deleteAutoecole(ae.idAutoEcole)">Delete</button></td>
+                                        <td><button class="btn btn-danger pull-right" (click)="editAutoecole(ae)">Update</button></td>
+                                    </tr>                                 
+                                </tbody>
+                             </table>                    
+                          </div>
+                      </div>
+                 </div>
+             </div>
+        </div>
+
+
+        <!-- FORMULAIRE MONITEUR-->
+        
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
                         <h4 class="card-title">Ajouter un Moniteur</h4>
                     </div>
                     <div class="card-body">
@@ -55,12 +248,12 @@
                 </div>
             </div>
         </div>
+        
         <div class="row">
           <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-danger">
-                    <h4 class="card-title ">Simple Table</h4>
-                    <p class="card-category"> Here is a subtitle for this table</p>
+                    <h4 class="card-title ">Les moniteurs</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -92,7 +285,7 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let m of users">
+                                    <tr *ngFor="let m of moniteurs">
                                         <td>{{m.nomMoniteur}}</td>
                                         <td>{{m.prenomMoniteur}}</td>   
                                         <td>{{m.anneeMoniteur}}</td>    
@@ -103,18 +296,8 @@
                                         <!--<img src="data:image/jpeg;base64,{{m.image}}" height="120" width="120">-->
                                         
                                         <td><button class="btn btn-danger pull-right" (click)="delete(m.idMoniteur)">Delete</button></td>
-                                        <td><button class="btn btn-danger pull-right" (click)="editUser(m)">Update</button></td>
-                                    </tr>
-                                   <!--
-                                    <tr *ngFor="let m of users">
-                                        <td>{{m.nomMoniteur}}</td>
-                                        <td>{{m.prenomMoniteur}}</td>
-                                        <td>{{m.anneeMoniteur}}</td>    
-                                        <td>{{m.decriptionMoniteur}}</td>    
-                                        <td>{{m.emailMoniteur}}</td>    
-                                        <td>{{m.telephoneMoniteur}}</td>
-                                    </tr>
-                                    -->
+                                        <td><button class="btn btn-danger pull-right" (click)="editMoniteur(m)">Update</button></td>
+                                    </tr>                                 
                                 </tbody>
                              </table>                    
                           </div>
@@ -122,6 +305,97 @@
                  </div>
              </div>
         </div>
+
+        <!--FORMULAIRE RENDEZ VOUS-->
+       
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Ajouter un Rendez-Vous</h4>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="saveRendezvous()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <li class="example-full-width">
+                                    <input placeholder="dateRedezVous" type="text" [(ngModel)]="rendezvous.dateRendezVous" name="dateRendezVous">
+                                  </li>
+                                </div>
+                                <div class="col-md-6">
+                                  <li class="example-full-width">
+                                    <input placeholder="heureRendezVous" type="text" [(ngModel)]="rendezvous.heureRendezVous" name="heureRendezVous">
+                                  </li>
+                                </div>   
+                                <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="autoEcoleRendezVous" type="text" [(ngModel)]="rendezvous.autoEcoleRendezVous" name="autoEcoleRendezVous">
+                                    </li>
+                                </div>   
+                               </div>
+
+                            <!--
+                            <div class="row">
+                              <label>Image</label>
+                              <input type="file" (change)="selectFile($event)" name="image">
+                            </div>   
+                            -->                          
+                            <button class="btn btn-danger pull-right">Ajouter</button>
+                            <div class="clearfix"></div>
+                        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Les Rendez-vous</h4>
+                    </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                             <table class="table">
+                                  <thead class=" text-primary">
+                                      <th>
+                                        dateRendezVous
+                                      </th>                                     
+                                      <th>
+                                        heureRendezVous
+                                      </th>
+                                      <th>
+                                        autoEcoleRendezVous
+                                      </th>                                                     
+                                      <th>
+                                          Supprimer
+                                      </th>
+                                      <th>
+                                          Modifier
+                                      </th>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let rdv of rendezvouss">
+                                          <td>{{rdv.dateRedezVous}}</td>
+                                          <td>{{rdv.heureRendezVous}}</td>   
+                                          <td>{{rdv.autoEcoleRendezVous}}</td>    
+                                              
+   
+                                          <!--<img src="data:image/jpeg;base64,{{m.image}}" height="120" width="120">-->
+                                          
+                                          <td><button class="btn btn-danger pull-right" (click)="deleteRendezvous(rdv.idRendezVous)">Delete</button></td>
+                                          <td><button class="btn btn-danger pull-right" (click)="editRendezvous(rdv)">Update</button></td>
+                                      </tr>                                 
+                                  </tbody>
+                               </table>                    
+                            </div>
+                        </div>
+                   </div>
+               </div>
+          </div>
+  
+
     </div>
 </div>
 

@@ -1,15 +1,59 @@
-
-<div>
-    <h1>Mise à jour d'un utilisateur</h1>
-    <form [formGroup]="editForm">
-        <table>
-            <tr>
-                <td>contenuCours</td>
-                <td><input type="text" [(ngModel)]="cours.contenuCours" formControlName="contenuCours"/></td>
-            </tr>
-            <tr>
-                <td colspan="2"><button (click)="updatecours()">Ajouter</button></td>
-            </tr>
-        </table>
-    </form>
+<div class="main-content" >
+    <div class="container-fluid">
+       
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Mise à jour d'un cours</h4>
+                    </div>
+                    <div class="content">
+                        <form [formGroup]="editForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Nombre d'heures de cours</label>
+                                        <input type="text" class="form-control" placeholder="Entrez les heures" [(ngModel)]="cours.nbrHeuresCours" formControlName="nbrHeuresCours">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>COntenu du cours</label>
+                                        <input type="text" class="form-control" placeholder="Entrez votre contenu" [(ngModel)]="cours.contenuCours" formControlName="contenuCours">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Complexité cours</label>
+                                        <input type="email" class="form-control" placeholder="complexiteCours" [(ngModel)]="cours.complexiteCours" formControlName="complexiteCours">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Thématique</label>
+                                        <input type="text" class="form-control" placeholder="Entrez la thématique" [(ngModel)]="cours.thematiqueCours" formControlName="thematiqueCours">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Format du cours</label>
+                                        <input type="text" class="form-control" placeholder="Entrez votre format"[(ngModel)]="cours.formatCours" formControlName="formatCours">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="text" class="form-control" placeholder="Entrez votre contenu" [(ngModel)]="cours.contenuCours" formControlName="contenuCours">
+                            </div>
+                            <button class="btn btn-info btn-fill pull-right" (click)="updateCours()">Mettre à jour</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

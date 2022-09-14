@@ -33,12 +33,14 @@ export class EditcoursComponent implements OnInit {
     })
     this.coursService.findOne(+coursId).
     subscribe(data => {this.editForm.setValue(data)});  
+    
   }
  
-  updatecours(){
+  updateCours(){
     var coursJson = JSON.stringify(this.editForm.value);
     this.coursService.updateCours(coursJson).
-    subscribe(()=>{this.router.navigate(['/cours'])});
+    subscribe(()=>{this.router.navigate(['/typography'])});
+    console.log(coursJson);
 
   }
 }

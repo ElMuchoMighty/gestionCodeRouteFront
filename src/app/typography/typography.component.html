@@ -1,49 +1,52 @@
-<!--<div [hidden]="!authenticated()"></div>-->
-<div class="main-content" >
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="header">
-                                <div class="btn-group-center mb-3" role="group" aria-label="Groupe de boutons" >
-                                    <button (click)="es(1)" (click)="es1()" type="button" class="btn btn-info">Entrée et sortie</button>
-                                    <button (click)="rs(2)" (click)="rs1()" type="button" class="btn btn-secondary">Règles et signalisation</button>
-                                    <button (click)="c(3)" (click)="c1()" type="button" class="btn btn-info">Circulation</button>
-                                    <button (click)="cd(4)" (click)="cd1()" type="button" class="btn btn-secondary">Conducteur</button>
-                                    <button (click)="m(5)" (click)="m1()" type="button" class="btn btn-info">Mécaniques</button>
-                                    <button (click)="ese(6)" (click)="ese1()" type="button" class="btn btn-secondary">Equipements de sécurité</button>
-                                    <button (click)="ra(7)" (click)="ra1()" type="button" class="btn btn-info">Règlementation et accidents</button>
-                                    <button (click)="ec(8)" (click)="ec1()" type="button" class="btn btn-secondary">Eco-conduite</button>
-                                </div>
-                    </div>
-                    <h1><span myDirective>{{Titre}}</span></h1>
-                    <span myDirective>{{contenus}}</span>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card card-plain">
-                                <div class="header">
-                                    <h4 class="title">Table on Plain Background</h4>
-                                    <p class="category">Here is a subtitle for this table</p>
-                                </div>
-                                <div class="content table-responsive table-full-width">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>id</th>
-                                                <th>contenuCours</th>
-                                                <th>Action 1</th>
-                                                <th>Action 2</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor="let c of classes">
-                                                <td>{{c.idCours}}</td>
-                                                <td>{{c.contenuCours}}</td>
-                                                <td><button (click)="supprimer(c.idCours)" class="btn btn-secondary">Supprimer</button></td>
-                                                <td><button (click)="editcours(c)" class="btn btn-secondary">Editer</button></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+<div [hidden]="!authenticated()">
+    <div class="main-content" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                                    <div class="btn-group-center mb-3" role="group" aria-label="Groupe de boutons" >
+                                        <button (click)="es(1)" (click)="es1()" type="button" class="btn btn-info">Entrée et sortie</button>
+                                        <button (click)="rs(2)" (click)="rs1()" type="button" class="btn btn-secondary">Règles et signalisation</button>
+                                        <button (click)="c(3)" (click)="c1()" type="button" class="btn btn-info">Circulation</button>
+                                        <button (click)="cd(4)" (click)="cd1()" type="button" class="btn btn-secondary">Conducteur</button>
+                                        <button (click)="m(5)" (click)="m1()" type="button" class="btn btn-info">Mécaniques</button>
+                                        <button (click)="ese(6)" (click)="ese1()" type="button" class="btn btn-secondary">Equipements de sécurité</button>
+                                        <button (click)="ra(7)" (click)="ra1()" type="button" class="btn btn-info">Règlementation et accidents</button>
+                                        <button (click)="ec(8)" (click)="ec1()" type="button" class="btn btn-secondary">Eco-conduite</button>
+                                    </div>
+                        </div>
+                        <h1>HEllo</h1>
+                        <h1><span myDirective>{{Titre}}</span></h1>
+                        <h5>Venez admirer nos statistiques</h5><span><button (click)="stats()" type="button" class="btn btn-secondary">nos statistiques</button></span><h5>de pro</h5>
+                        <span myDirective>{{contenus}}</span>
+                        <div class="row" [hidden]="authorities()">
+                            <div class="col-md-12">
+                                <div class="card card-plain">
+                                    <div class="header">
+                                        <h4 class="title">Table on Plain Background</h4>
+                                        <p class="category">Here is a subtitle for this table</p>
+                                    </div>
+                                    <div class="content table-responsive table-full-width" >
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>contenuCours</th>
+                                                    <th>Action 1</th>
+                                                    <th>Action 2</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let c of classes">
+                                                    <td>{{c.idCours}}</td>
+                                                    <td>{{c.contenuCours}}</td>
+                                                    <td><button (click)="supprimer(c.idCours)" class="btn btn-secondary">Supprimer</button></td>
+                                                    <td><button (click)="editcours(c)" class="btn btn-secondary">Editer</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -53,6 +56,6 @@
         </div>
     </div>
 </div>
-<!--<div [hidden]="authenticated()">
+<div [hidden]="authenticated()">
     <p>Connectez-vous pour afficher l'interface des utilisateurs</p>
-</div>-->
+</div>

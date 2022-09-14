@@ -7,10 +7,8 @@ import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { SidebarModule } from './sidebar/sidebar.module';
-import { MoniteurService } from './services/moniteur.service';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
 import { ReponseService } from './services/reponse.service';
 import { CoursService } from './services/cours.service';
 import { Observable } from 'rxjs';
@@ -22,6 +20,13 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { ExamenFinalService } from './services/examenfinal.service';
 import { ExamenBlancService } from './services/examenblanc.service';
 import { RapportService } from './services/rapport.service';
+import { EditAutoecoleComponent } from './editautoecole/editautoecole.component';
+import { EditRendezvousComponent } from './editrendezvous/editrendezvous.component';
+import { EditMoniteurComponent } from './editmoniteur/editmoniteur.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { StatistiqueService } from './services/statistique.service';
+import { StatistiqueComponent } from './statistique/statistique.component';
+
 
 
 
@@ -46,18 +51,24 @@ export class XhrInterceptor implements HttpInterceptor{
     FooterModule,
     SidebarModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserModule
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-    EditUserComponent,
+    AdminLayoutComponent,    
     EditcoursComponent,
     InscriptionComponent,
     EdituserComponent,
+    EditAutoecoleComponent,
+    EditRendezvousComponent,
+    EditMoniteurComponent,
+    StatistiqueComponent,
   ],
   
-  providers: [MoniteurService,TestService,ReponseService,ReponseService,CoursService,UtilisateurService,ExamenBlancService,ExamenFinalService,RapportService,{provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}],
+
+  providers: [StatistiqueService,/*MoniteurService,*/TestService,ReponseService,ReponseService,CoursService,UtilisateurService,ExamenBlancService,ExamenFinalService,RapportService,{provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
