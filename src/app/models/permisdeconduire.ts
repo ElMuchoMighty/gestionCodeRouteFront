@@ -6,8 +6,4 @@ import { Vehicules } from "./vehicules";
 export class Permisdeconduire {
     idPermis!:number;
     libPermis!:string;
-    villePermis!:string;
-    paysPermis!:string;
-    
-
 }

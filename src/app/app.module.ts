@@ -25,11 +25,10 @@ import { EditMoniteurComponent } from './editmoniteur/editmoniteur.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { StatistiqueService } from './services/statistique.service';
 import { StatistiqueComponent } from './statistique/statistique.component';
+import { RendezvousService } from './services/rendezvous.service';
+import { MoniteurService } from './services/moniteur.service';
 import { AutoecoleService } from './services/autoecole.service';
 import { PermisService } from './services/permisdeconduire.service';
-import { MoniteurService } from './services/moniteur.service';
-
-
 
 
 
@@ -68,7 +67,9 @@ export class XhrInterceptor implements HttpInterceptor{
   ],
   
 
-  providers: [StatistiqueService,MoniteurService,TestService,ReponseService,ReponseService,CoursService,UtilisateurService,ExamenBlancService,ExamenFinalService,RapportService,AutoecoleService,PermisService,{provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}],
+
+  providers: [StatistiqueService,MoniteurService,TestService,ReponseService,ReponseService,CoursService,UtilisateurService,ExamenBlancService,ExamenFinalService,RapportService,AutoecoleService,PermisService,RendezvousService,{provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}],
+
 
   bootstrap: [AppComponent]
 })

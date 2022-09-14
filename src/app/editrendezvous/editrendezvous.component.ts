@@ -12,32 +12,33 @@ import { RendezvousService } from "app/services/rendezvous.service";
 })
 export class EditRendezvousComponent implements OnInit {
   editForm!: FormGroup;
-  rendezvous:Rendezvous = new Rendezvous();
-  constructor(private router:Router,private rendezvousService:RendezvousService,
+  rendezVous:Rendezvous = new Rendezvous();
+  constructor(private router:Router,private rendezVousService:RendezvousService,
     private formBuilder:FormBuilder) { }
  
   ngOnInit(): void {
-    let userId = localStorage.getItem("editRendezvousId");
-    if(!userId){
+    let rendezVousId = localStorage.getItem("editrendezvousId");
+    if(!rendezVousId){
       alert("Invalid Action!!!");
-      this.router.navigate(['/rendezvous']);
+      this.router.navigate(['/rendezVous']);
       return;
     }
     this.editForm = this.formBuilder.group({
       idRendezVous:[],
+      heureRendezVous: ['',Validators.required],
       dateRendezVous: ['',Validators.required],
-      heureRendezVous:['',Validators.required],
-      autoEcoleRendezVous:['',Validators.required],
-      
     })
-    this.rendezvousService.get(+userId).
+    this.rendezVousService.findOne(+rendezVousId).
     subscribe(data => {this.editForm.setValue(data)});  
+    console.log("rendezvousid"+rendezVousId);
+    
   }
  
   updateRendezvous(){
-    var userJson = JSON.stringify(this.editForm.value);
-    this.rendezvousService.update(userJson).
-    subscribe(()=>{this.router.navigate(['/rendezvous'])});
+    var coursJson = JSON.stringify(this.editForm.value);
+    this.rendezVousService.updateRendezVous(coursJson).
+    subscribe(()=>{this.router.navigate(['/autoecoles'])});
+    console.log(coursJson);
   }
  
 }

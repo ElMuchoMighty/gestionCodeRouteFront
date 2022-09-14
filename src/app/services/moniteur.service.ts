@@ -19,11 +19,9 @@ export class MoniteurService {
     public findOne(id:number) : Observable<any>{
       return this.httpClient.get(this.baseUrl+"/"+id);
     }
-  
     public save(moniteur:any) : Observable<any>{
       return this.httpClient.post(this.baseUrl,moniteur);
     }
-    
     public delete(id:number) : Observable<any>{
       return this.httpClient.delete(this.baseUrl+"/"+id);
     }

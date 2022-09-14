@@ -8,6 +8,6 @@ export class Moniteur {
     descriptionMoniteur!:string;
     telephoneMoniteur!:number;
     emailMoniteur!:string;
-    permis!:Permisdeconduire[];
+    permisDeConduire!:Permisdeconduire[];
 
 }

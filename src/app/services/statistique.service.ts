@@ -6,14 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class StatistiqueService {
-  private baseUrl = "http://localhost:7070/statistique";
+  private baseUrl = "http://localhost:7070//statistique/AdminR";
+  private baseUrl1 = "http://localhost:7070/statistique/CandidatR";
   constructor(private httpClient:HttpClient) { }
 
   public NombreAdmin1() : Observable<any>{
-    return this.httpClient.get(this.baseUrl+"/AdminR"); // http:localhost:7070/utilisateurs: le verbe get => afficher la liste des utilisateurs
+    return this.httpClient.get(this.baseUrl);
   }
 
   public NombreCandidat1() : Observable<any>{
-    return this.httpClient.get(this.baseUrl+"/CandidatR"); // http:localhost:7070/utilisateurs: le verbe get => afficher la liste des utilisateurs
+    return this.httpClient.get(this.baseUrl); 
   }
+
 }

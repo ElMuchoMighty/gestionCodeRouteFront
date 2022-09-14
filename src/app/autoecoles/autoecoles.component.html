@@ -1,4 +1,4 @@
-<div class="main-content">
+<!--<div class="main-content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
@@ -7,7 +7,7 @@
     
                         <h1><span myDirective>{{Titre}}</span></h1>
                         <span myDirective>{{contenus}}</span>
-                    </div>
+                    </div>-->
 
        
         <!--FORMULAIRE AUTO ECOLE-->
@@ -116,63 +116,6 @@
 
 
         <!-- FORMULAIRE MONITEUR-->
-        
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title">Ajouter un Moniteur</h4>
-                    </div>
-                    <div class="card-body">
-                        <form (ngSubmit)="save()">
-                            <div class="row">
-                                <div class="col-md-6">
-                                  <li class="example-full-width">
-                                    <input placeholder="Nom" type="text" [(ngModel)]="moniteur.nomMoniteur" name="nomMoniteur">
-                                  </li>
-                                </div>
-                                <div class="col-md-6">
-                                  <li class="example-full-width">
-                                    <input placeholder="Prénom" type="text" [(ngModel)]="moniteur.prenomMoniteur" name="prenomMoniteur">
-                                  </li>
-                                </div>   
-                                <div class="col-md-6">
-                                    <li class="example-full-width">
-                                      <input placeholder="Anneeexperience" type="text" [(ngModel)]="moniteur.anneeMoniteur" name="anneeMoniteur">
-                                    </li>
-                                </div>   
-                                <div class="col-md-6">
-                                    <li class="example-full-width">
-                                      <input placeholder="DescriptionMoniteur" type="text" [(ngModel)]="moniteur.descriptionMoniteur" name="descriptionMoniteur">
-                                    </li>
-                                </div>   
-                                <div class="col-md-6">
-                                    <li class="example-full-width">
-                                      <input placeholder="EmailMoniteur" type="text" [(ngModel)]="moniteur.emailMoniteur" name="emailMoniteur">
-                                    </li>
-                                </div>    
-                                <div class="col-md-6">
-                                    <li class="example-full-width">
-                                      <input placeholder="TelephoneMoniteur" type="text" [(ngModel)]="moniteur.telephoneMoniteur" name="telephoneMoniteur">
-                                    </li>
-                                </div>                             
-                            </div>
-
-                            <!--
-                            <div class="row">
-                              <label>Image</label>
-                              <input type="file" (change)="selectFile($event)" name="image">
-                            </div>   
-                            -->                          
-                            <button class="btn btn-danger pull-right">Ajouter</button>
-                            <div class="clearfix"></div>
-                        
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
 
 
         <div class="row">
@@ -229,7 +172,7 @@
                             
                                 
                                 <div class="col-md-6">
-                                    <select multiple name="permis" [(ngModel)]="moniteur.permis">
+                                    <select multiple name="permis" [(ngModel)]="moniteur.permisDeConduire">
                                             <option *ngFor="let p of permiss" [ngValue]="p">
                                                 {{p.libPermis}}
                                             </option>
@@ -308,97 +251,74 @@
              </div>
         </div>
 
+
         <!--FORMULAIRE RENDEZ VOUS-->
        
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title">Ajouter un Rendez-Vous</h4>
+        <div class="main-content" >
+            <div class="container-fluid">
+               
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Les Rendez-vous</h4>
+                            </div>
+                                    <div class="content">
+                                        <form (ngSubmit)="saveRendezVous()">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Date des rendez-vous</label>
+                                                            <input type="Date" class="form-control" placeholder="Entrez votre Date" [(ngModel)]="rendezVous.dateRendezVous" name="dateRendezVous">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Heure des rendez-vous</label>
+                                                            <input type="text" class="form-control" placeholder="Entrez votre heure" [(ngModel)]="rendezVous.heureRendezVous" name="heureRendezVous">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                    <button class="btn btn-info btn-fill pull-right">Ajouter</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <form (ngSubmit)="saveRendezvous()">
-                            <div class="row">
-                                <div class="col-md-6">
-                                  <li class="example-full-width">
-                                    <input placeholder="dateRedezVous" type="text" [(ngModel)]="rendezvous.dateRendezVous" name="dateRendezVous">
-                                  </li>
-                                </div>
-                                <div class="col-md-6">
-                                  <li class="example-full-width">
-                                    <input placeholder="heureRendezVous" type="text" [(ngModel)]="rendezvous.heureRendezVous" name="heureRendezVous">
-                                  </li>
-                                </div>   
-                                <div class="col-md-6">
-                                    <li class="example-full-width">
-                                      <input placeholder="autoEcoleRendezVous" type="text" [(ngModel)]="rendezvous.autoEcoleRendezVous" name="autoEcoleRendezVous">
-                                    </li>
-                                </div>   
-                               </div>
-
-                            <!--
-                            <div class="row">
-                              <label>Image</label>
-                              <input type="file" (change)="selectFile($event)" name="image">
-                            </div>   
-                            -->                          
-                            <button class="btn btn-danger pull-right">Ajouter</button>
-                            <div class="clearfix"></div>
-                        
-                        </form>
+                </div>
+                <div class="row" [hidden]="authorities()">
+                    <div class="col-md-12">
+                        <div class="card card-plain">
+                            <div class="header">
+                                <h4 class="title">Liste des rendez-vous</h4>
+                                <p class="category">Table</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>date de rendez-vous</th>
+                                            <th>heure de rendez-vous</th>
+                                            <th>Action 1</th>
+                                            <th>Action 2</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let a of appointment">
+                                            <td>{{a.idUtilisateur}}</td>
+                                            <td>{{a.dateRendezVous}}</td>
+                                            <td>{{a.heureRendezVous}}</td>
+                                            <td><button (click)="deleteRendezVous(a.idRendezVous)" class="btn btn-secondary">Supprimer un rendez vous</button></td>
+                                            <td><button (click)="editRendezVous(a)" class="btn btn-secondary">Editer un rendez-vous</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-       
-        <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title ">Listes des Rendez-vous</h4>
-                    </div>
-                  <div class="card-body">
-                      <div class="table-responsive">
-                             <table class="table">
-                                  <thead class=" text-primary">
-                                      <th>
-                                        dateRendezVous
-                                      </th>                                     
-                                      <th>
-                                        heureRendezVous
-                                      </th>
-                                      <th>
-                                        autoEcoleRendezVous
-                                      </th>                                                     
-                                      <th>
-                                          Supprimer
-                                      </th>
-                                      <th>
-                                          Modifier
-                                      </th>
-                                  </thead>
-                                  <tbody>
-                                      <tr *ngFor="let rdv of rendezvouss">
-                                          <td>{{rdv.dateRedezVous}}</td>
-                                          <td>{{rdv.heureRendezVous}}</td>   
-                                          <td>{{rdv.autoEcoleRendezVous}}</td>    
-                                              
-   
-                                          <!--<img src="data:image/jpeg;base64,{{m.image}}" height="120" width="120">-->
-                                          
-                                          <td><button class="btn btn-danger pull-right" (click)="deleteRendezvous(rdv.idRendezVous)">Delete</button></td>
-                                          <td><button class="btn btn-danger pull-right" (click)="editRendezvous(rdv)">Update</button></td>
-                                      </tr>                                 
-                                  </tbody>
-                               </table>                    
-                            </div>
-                        </div>
-                   </div>
-               </div>
-          </div>
-  
-
-    </div>
-</div>
 
 
