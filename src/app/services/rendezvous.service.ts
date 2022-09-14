@@ -10,21 +10,19 @@ export class RendezvousService {
   constructor(private httpClient:HttpClient) { }
 
   public findAll() : Observable<any>{
-    return this.httpClient.get(this.baseUrl); // http:localhost:7070/utilisateurs: le verbe get => afficher la liste des utilisateurs
+    return this.httpClient.get(this.baseUrl); 
   }
   public findOne(id:number) : Observable<any>{
     return this.httpClient.get(this.baseUrl+"/"+id);
   }
-  public save (rendezVous:any):Observable<any>{
+  public save(rendezVous:any):Observable<any>{
     return this.httpClient.post(this.baseUrl,rendezVous);
   }
-  public get(id:number):Observable<any>{
-    return this.httpClient.get(this.baseUrl+'/'+id);
-  }
-  public update (rendezVous:any):Observable<any>{
-    return this.httpClient.put(this.baseUrl,rendezVous);
+  public updateRendezVous(rendezVous:any):Observable<any>{
+    var rendezVousParse = JSON.parse(rendezVous);
+    return this.httpClient.put(this.baseUrl+'/'+rendezVousParse.idRendezVous,rendezVousParse);
   }
   public delete(id:number):Observable<any>{
-    return this.httpClient.delete(this.baseUrl+"/"+id); //http://localhost:7070/Cours/1
+    return this.httpClient.delete(this.baseUrl+"/"+id); 
   }
 }
