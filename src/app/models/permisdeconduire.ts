@@ -8,8 +8,6 @@ export class Permisdeconduire {
     libPermis!:string;
     villePermis!:string;
     paysPermis!:string;
-    assuranceauto!:Assuranceauto[];
-    vehicules!:Vehicules[];
-    moniteurs!:Moniteur[];
-    utilisateur!:Utilisateur;
+    
+
 }

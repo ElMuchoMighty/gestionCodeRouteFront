@@ -2,13 +2,9 @@
 <div class="main-content">
 <div>
     <select  name="endroit" [(ngModel)]="place">
-        <option >
-            Morlaas
-        </option>
-        <option>Saint Jammes</option>
-        <option>Tournefeuille</option>
+        <option *ngFor="let ae of autoecoles" >
+            {{ae.ville}}
     </select> 
-    {{place}}
 </div>
 
 <div>

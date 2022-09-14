@@ -4,73 +4,11 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <div class="btn-group-center mb-3" role="group" aria-label="Groupe de boutons" >
-                            <button (click)="es(1)" (click)="es1()" type="button" class="btn btn-info">Auto-Ecoles</button>
-                            <button (click)="rs(2)" (click)="rs1()" type="button" class="btn btn-secondary">Rendez-vous</button>
-                            <button (click)="c(3)" (click)="c1()" type="button" class="btn btn-info">Moniteur</button>                                    
-                        </div>
+    
                         <h1><span myDirective>{{Titre}}</span></h1>
                         <span myDirective>{{contenus}}</span>
                     </div>
 
-
-                    <!--
-                    <div class="row">
-                        <div class="card-body">
-                            <form (ngSubmit)="save()">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                    <li class="example-full-width">
-                                        <input placeholder="Nom" type="text" [(ngModel)]="moniteur.nomMoniteur" name="nomMoniteur">
-                                    </li>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <li class="example-full-width">
-                                        <input placeholder="Prénom" type="text" [(ngModel)]="moniteur.prenomMoniteur" name="prenomMoniteur">
-                                    </li>
-                                    </div>   
-                                    <div class="col-md-6">
-                                        <li class="example-full-width">
-                                        <input placeholder="Anneeexperience" type="text" [(ngModel)]="moniteur.anneeMoniteur" name="anneeMoniteur">
-                                        </li>
-                                    </div>   
-                                    <div class="col-md-6">
-                                        <li class="example-full-width">
-                                        <input placeholder="DescriptionMoniteur" type="text" [(ngModel)]="moniteur.descriptionMoniteur" name="descriptionMoniteur">
-                                        </li>
-                                    </div>   
-                                    <div class="col-md-6">
-                                        <li class="example-full-width">
-                                        <input placeholder="EmailMoniteur" type="text" [(ngModel)]="moniteur.emailMoniteur" name="emailMoniteur">
-                                        </li>
-                                    </div>    
-                                    <div class="col-md-6">
-                                        <li class="example-full-width">
-                                        <input placeholder="TelephoneMoniteur" type="text" [(ngModel)]="moniteur.telephoneMoniteur" name="telephoneMoniteur">
-                                        </li>
-                                    </div>                             
-                                </div>
-
-                            -->
-                            
-
-                                <!--
-                                <div class="row">
-                                <label>Image</label>
-                                <input type="file" (change)="selectFile($event)" name="image">
-                                </div>   
-                                -->      
-                                <!--                    
-                                <button class="btn btn-danger pull-right">Ajouter</button>
-                                <div class="clearfix"></div>
-
-                            </form>
-                        </div>
-                    </div>    
-                </div>
-            </div>
-        </div>
-    -->
        
         <!--FORMULAIRE AUTO ECOLE-->
 
@@ -81,63 +19,46 @@
                         <h4 class="card-title">Ajouter une auto ecole</h4>
                     </div>
                     <div class="card-body">
-                        <form (ngSubmit)="saveAutoecole()">
+                        <form (ngSubmit)="save()">
                             <div class="row">
-                                <!--<div class="col-md-6">
-                                  <li class="example-full-width">
-                                    <input placeholder="adresseAutoEcole" type="text" [(ngModel)]="autoecole.adresseAutoEcole.region" name="adresseAutoEcole">
-                                  </li>
-                                </div>
-                                <div class="col-md-6">
-                                    <li class="example-full-width">
-                                      <input placeholder="adresseAutoEcole" type="text" [(ngModel)]="autoecole.adresseAutoEcole.ville" name="adresseAutoEcole">
-                                    </li>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <li class="example-full-width">
-                                      <input placeholder="adresseAutoEcole" type="text" [(ngModel)]="autoecole.adresseAutoEcole.adressePostale" name="adresseAutoEcole">
-                                    </li>
-                                  </div>  
-                                  <div class="col-md-6">
-                                    <li class="example-full-width">
-                                      <input placeholder="adresseAutoEcole" type="text" [(ngModel)]="autoecole.adresseAutoEcole.codePostale" name="adresseAutoEcole">
-                                    </li>
-                                  </div>-->
                                 <div class="col-md-6">
                                   <li class="example-full-width">
-                                    <input placeholder="emailAutoEcole" type="text" [(ngModel)]="autoecole.emailAutoEcole" name="emailAutoEcole">
+                                    <input placeholder="contactAutoEcole" type="text" [(ngModel)]="autoecole.contactAutoEcole" name="contactAutoEcole">
                                   </li>
                                 </div>                                  
                                 <div class="col-md-6">
                                     <li class="example-full-width">
-                                      <input placeholder="telephoneAutoEcole" type="text" [(ngModel)]="autoecole.telephoneAutoEcole" name="telephoneAutoEcole">
+                                      <input placeholder="emailAutoEcole" type="text" [(ngModel)]="autoecole.emailAutoEcole" name="emailAutoEcole">
+                                    </li>
+                                </div> 
+                            </div>
+                            <div class="row">  
+                                <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="tel" type="text" [(ngModel)]="autoecole.telephoneAutoEcole" name="telephoneAutoEcole">
                                     </li>
                                 </div>   
                                 <div class="col-md-6">
                                     <li class="example-full-width">
-                                      <input placeholder="enseigneAutoEcole" type="text" [(ngModel)]="autoecole.enseigneAutoEcole" name="enseigneAutoEcole">
+                                      <input placeholder="Enseigne de l'auto Ecole" type="text" [(ngModel)]="autoecole.enseigneAutoEcole" name="enseigneAutoEcole">
                                     </li>
-                                </div>   
+                                </div>
+                            </div>
+                            <div class="row">  
                                 <div class="col-md-6">
                                     <li class="example-full-width">
-                                      <input placeholder="utilisateurAutoEcole" type="text" [(ngModel)]="autoecole.utilisateurAutoEcole" name="utilisateurAutoEcole">
-                                    </li>
-                                </div>    
-                                <div class="col-md-6">
-                                    <li class="example-full-width">
-                                      <input placeholder="moniteurAutoEcole" type="text" [(ngModel)]="autoecole.moniteurAutoEcole" name="moniteurAutoEcole">
+                                      <input placeholder="region" type="text" [(ngModel)]="autoecole.region" name="region">
                                     </li>
                                 </div>
                                 <div class="col-md-6">
                                     <li class="example-full-width">
-                                      <input placeholder="rendezVousAutoEcole" type="text" [(ngModel)]="autoecole.rendezVousAutoEcole" name="rendezVousAutoEcole">
+                                      <input placeholder="ville" type="text" [(ngModel)]="autoecole.ville" name="ville">
                                     </li>
                                 </div>  
                             </div>
                                                    
                             <button class="btn btn-danger pull-right">Ajouter</button>
-                            <div class="clearfix"></div>
-                        
+                            <div class="clearfix"></div>                        
                         </form>
                     </div>
                 </div>
@@ -155,53 +76,35 @@
                            <table class="table">
                                 <thead class=" text-primary">
                                     <th>
-                                        adresseAE
+                                        Contact Auto-Ecoles
                                     </th>
                                     <th>
-                                        emailAE
+                                        Email Auto-Ecoles
                                     </th>
                                     <th>
-                                        telephoneAE
+                                       Telephone Auto-Ecoles
                                     </th>
                                     <th>
                                         enseigneAE
                                     </th>
+
                                     <th>
-                                        utilisateurAE
+                                        Region
                                     </th>
                                     <th>
-                                        moniteurAE
-                                    </th>     
-                                    <th>
-                                        rendezVousAE
-                                    </th>
-                                    <th>
-                                        Supprimer
-                                    </th>
-                                    <th>
-                                        Modifier
+                                        Ville
                                     </th>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let ae of autoecoles">
-                                        <td>{{ae.adresseAutoEcole}}</td>
-                                       <!--
-                                        <td>{{ae.adresseAutoEcole.region}}</td>
-                                        <td>{{ae.adresseAutoEcole.ville}}</td>
-                                        <td>{{ae.adresseAutoEcole.adressePostale}}</td>
-                                        <td>{{ae.adresseAutoEcole.codePostale}}</td>
-                                       -->
+                                        <td>{{ae.contactAutoEcole}}</td>
                                         <td>{{ae.emailAutoEcole}}</td>   
                                         <td>{{ae.telephoneAutoEcole}}</td>    
                                         <td>{{ae.enseigneAutoEcole}}</td>    
-                                        <td>{{ae.utilisateurAutoEcole}}</td>    
-                                        <td>{{ae.moniteurAutoEcole}}</td> 
-                                        <td>{{ae.rendezVousAutoEcole}}</td>   
- 
-                                        <!--<img src="data:image/jpeg;base64,{{m.image}}" height="120" width="120">-->
+                                        <td>{{ae.region}}</td>    
+                                        <td>{{ae.ville}}</td> 
                                         
                                         <td><button class="btn btn-danger pull-right" (click)="deleteAutoecole(ae.idAutoEcole)">Delete</button></td>
-                                        <td><button class="btn btn-danger pull-right" (click)="editAutoecole(ae)">Update</button></td>
                                     </tr>                                 
                                 </tbody>
                              </table>                    
@@ -270,6 +173,86 @@
             </div>
         </div>
         
+
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Moniteurs</h4>
+                    </div>
+                    <div class="content">
+                        <form (ngSubmit)="saveMoniteur()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Nom</label>
+                                        <input type="text" class="form-control" placeholder="Entrez le nom du moniteur" [(ngModel)]="moniteur.nomMoniteur" name="nomMoniteur">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Prenom</label>
+                                        <input type="text" class="form-control" placeholder="Entrez prenom du Moniteur" [(ngModel)]="moniteur.prenomMoniteur" name="prenomMoniteur">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Annee Moniteur</label>
+                                        <input type="text" class="form-control" placeholder="Annee Moniteur" [(ngModel)]="moniteur.anneeMoniteur" name="anneeMoniteur">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>description Moniteur</label>
+                                        <input type="text" class="form-control" placeholder="Description" [(ngModel)]="moniteur.descriptionMoniteur" name="descriptionMoniteur">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>telephone Moniteur</label>
+                                        <input type="text" class="form-control" placeholder="Entrez le telephone"[(ngModel)]="moniteur.telephoneMoniteur" name="telephoneMoniteur">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" class="form-control" placeholder="Email" [(ngModel)]="moniteur.emailMoniteur" name="emailMoniteur">
+                                    </div>
+                                </div>
+                            
+                                
+                                <div class="col-md-6">
+                                    <select multiple name="permis" [(ngModel)]="moniteur.permis">
+                                            <option *ngFor="let p of permiss" [ngValue]="p">
+                                                {{p.libPermis}}
+                                            </option>
+                                    </select>
+                                </div>
+                               
+
+                            </div>
+                            <button class="btn btn-info btn-fill pull-right">S'inscrire</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -310,14 +293,12 @@
                                         <td>{{m.nomMoniteur}}</td>
                                         <td>{{m.prenomMoniteur}}</td>   
                                         <td>{{m.anneeMoniteur}}</td>    
-                                        <td>{{m.decriptionMoniteur}}</td>    
+                                        <td>{{m.descriptionMoniteur}}</td>    
                                         <td>{{m.emailMoniteur}}</td>    
                                         <td>{{m.telephoneMoniteur}}</td>    
  
-                                        <!--<img src="data:image/jpeg;base64,{{m.image}}" height="120" width="120">-->
                                         
                                         <td><button class="btn btn-danger pull-right" (click)="delete(m.idMoniteur)">Delete</button></td>
-                                        <td><button class="btn btn-danger pull-right" (click)="editMoniteur(m)">Update</button></td>
                                     </tr>                                 
                                 </tbody>
                              </table>                    

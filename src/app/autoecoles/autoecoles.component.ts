@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Autoecole } from 'app/models/autoecole';
 import { Moniteur } from 'app/models/moniteur';
+import { Permisdeconduire } from 'app/models/permisdeconduire';
 import { Rendezvous } from 'app/models/rendezvous';
 import { AutoecoleService } from 'app/services/autoecole.service';
 import { MoniteurService } from 'app/services/moniteur.service';
+import { PermisService } from 'app/services/permisdeconduire.service';
 import { RendezvousService } from 'app/services/rendezvous.service';
 
 
@@ -19,16 +21,18 @@ export class AutoecolesComponent implements OnInit {
   moniteurs!: any[];
   autoecoles!: any[];
   rendezvouss!:any[];
+  permiss!:any[];
   moniteur : Moniteur = new Moniteur();
   autoecole : Autoecole = new Autoecole();
   rendezvous : Rendezvous = new Rendezvous();
   
-  constructor(private moniteurService:MoniteurService,private autoecoleService:AutoecoleService,private rendezvousService:RendezvousService,private router:Router) { }
+  constructor(private moniteurService:MoniteurService,private autoecoleService:AutoecoleService,private rendezvousService:RendezvousService,private router:Router,private permisService:PermisService) { }
 
   ngOnInit(): void {
     this.findAllAutoecole();
     this.findAllMoniteur();
     this.findAllRendezvous();
+    this.findAllPermis();
   }
 
 
@@ -36,21 +40,21 @@ export class AutoecolesComponent implements OnInit {
 
   // ********************************AUTO ECOLE
 
-
-
-
   findAllAutoecole(){
-    this.autoecoleService.findAll().subscribe((data: any[]) => {this.autoecoles = data;});
+    this.autoecoleService.findAll().subscribe(data => {this.autoecoles = data;})
   }
+
   findOneAutoecole(id:number){
     this.autoecoleService.findOne(id).subscribe(()=>{this.findAllAutoecole()})
   }
+
+
   
-  saveAutoecole() {
-        this.autoecoleService.saveAutoecole(this.autoecole).subscribe(
+  save() {
+    this.autoecoleService.save(this.autoecole).subscribe(
       () => {
-        this.findAllAutoecole(); // MAJ de la liste des utilisateurs
-        this.autoecole = new Autoecole(); // Vider le formulaire        
+        this.findAllAutoecole();
+        this.autoecole = new Autoecole();
       }
     )
   }
@@ -59,22 +63,8 @@ export class AutoecolesComponent implements OnInit {
   deleteAutoecole(id:number){
     this.autoecoleService.delete(id).subscribe(()=>{this.findAllAutoecole()});
   }
-  //constructor(private utilisateurService:UtilisateurService, private router:Router) { }
-  editAutoecole(autoecole:Autoecole){
-      // Step 2
-      localStorage.removeItem("editAutoecoleId");
-      // Step 1
-      localStorage.setItem("editAutoecoleId",autoecole.idAutoEcole.toString());
-      // Step 3
-      // localhost:4200/editUser/3
-      this.router.navigate(['editAutoecole',autoecole.idAutoEcole]);
-   
-    }
 
-
-
-
-    //***************************** MONITEUR **********************/
+  //***************************** MONITEUR **********************/
 
 
 
@@ -85,12 +75,9 @@ export class AutoecolesComponent implements OnInit {
   findOneMoniteur(id:number){
     this.moniteurService.findOne(id).subscribe(()=>{this.findAllMoniteur()})
   }
-/*
-  selectFile(event: any) {
-    this.selectedFiles = event.target.files;
-  }
-*/
-  save() {
+
+  saveMoniteur() {
+        console.log(this.moniteur.permis);
         this.moniteurService.save(this.moniteur).subscribe(
       () => {
         this.findAllMoniteur(); // MAJ de la liste des utilisateurs
@@ -98,20 +85,13 @@ export class AutoecolesComponent implements OnInit {
       }
     )
   }
-  /*
-  save(){
-    this.utilisateurService.save(this.utilisateur).subscribe(
-      ()=>{
-        this.findAllUtilisateur(); //update list
-        this.utilisateur = new Utilisateur(); //vider formulaire
-      }
-    )
-  }*/
+
 
   delete(id:number){
     this.moniteurService.delete(id).subscribe(()=>{this.findAllMoniteur()});
   }
-  //constructor(private utilisateurService:UtilisateurService, private router:Router) { }
+
+
   editMoniteur(moniteur:Moniteur){
       // Step 2
       localStorage.removeItem("editMoniteurId");
@@ -125,6 +105,10 @@ export class AutoecolesComponent implements OnInit {
 
 
 
+
+    findAllPermis(){
+      this.permisService.findAll().subscribe(data => {this.permiss = data;})
+    }
 
 
     //******************* RENDEZ VOUS ****************/
@@ -169,25 +153,4 @@ export class AutoecolesComponent implements OnInit {
 
     contenus ="Vous pouvez consulter les rendez-vous les moniteurs et les auto-écoles";
     Titre="BIENVENUE A LA SESSION AUTO ECOLE :)"
-    
-    es(id:number) {
-      this.moniteurService.findOne(id).subscribe((data: Autoecole) => {this.contenus = data.enseigneAutoEcole;console.log(this.contenus)});
-      }
-      
-      es1() {
-        this.Titre = 'Auto-Ecoles';
-        }
-        rs(id:number) {
-          this.moniteurService.findOne(id).subscribe((data: Autoecole) => {this.contenus = data.enseigneAutoEcole;console.log(this.contenus)});
-          }
-          rs1() {
-            this.Titre = 'Ajouter un Rendez-vous';
-            }
-          
-          c(id:number) {
-            this.moniteurService.findOne(id).subscribe((data: Autoecole) => {this.contenus = data.enseigneAutoEcole;console.log(this.contenus)});
-            }
-            c1() {
-              this.Titre = 'Ajouter un Moniteur';
-              }
 }

@@ -24,7 +24,6 @@ export class MoniteurService {
       return this.httpClient.post(this.baseUrl,moniteur);
     }
     
-  
     public delete(id:number) : Observable<any>{
       return this.httpClient.delete(this.baseUrl+"/"+id);
     }
