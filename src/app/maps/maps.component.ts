@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AutoecoleService } from 'app/services/autoecole.service';
 
 @Component({
   selector: 'app-maps',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MapsComponent implements OnInit {
-  place="Pau";
-  constructor() { }
 
-  ngOnInit() { }
+  autoecoles!: any[];
+
+
+  place="Pau";
+  constructor(private autoecoleService:AutoecoleService) { }
+
+  ngOnInit() { 
+    this.findAllAutoecole();
+  }
+
+
+  findAllAutoecole(){
+    this.autoecoleService.findAll().subscribe(data => {this.autoecoles = data;})
+  }
 
 }

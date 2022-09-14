@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CoursService {
+export class PermisService {
   private baseUrl = "http://localhost:7070/permisDeConduires";
   constructor(private httpClient:HttpClient) { }
 

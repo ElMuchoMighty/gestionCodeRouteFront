@@ -10,13 +10,13 @@ export class AutoecoleService {
   constructor(private httpClient:HttpClient) { }
 
   public findAll() : Observable<any>{
-    return this.httpClient.get(this.baseUrl); // http:localhost:7070/utilisateurs: le verbe get => afficher la liste des utilisateurs
+    return this.httpClient.get(this.baseUrl); 
   }
   public findOne(id:number) : Observable<any>{
     return this.httpClient.get(this.baseUrl+"/"+id);
   }
-  public saveAutoecole(autoEcoles:any):Observable<any>{
-    return this.httpClient.post(this.baseUrl,autoEcoles);
+  public save(autoEcole:any):Observable<any>{
+    return this.httpClient.post(this.baseUrl,autoEcole);
   }
   public update(autoEcoles:any):Observable<any>{
     return this.httpClient.put(this.baseUrl,autoEcoles);
@@ -25,6 +25,6 @@ export class AutoecoleService {
     return this.httpClient.get(this.baseUrl+'/'+id);
   }
   public delete(id:number):Observable<any>{
-    return this.httpClient.delete(this.baseUrl+"/"+id); //http://localhost:7070/Cours/1
+    return this.httpClient.delete(this.baseUrl+"/"+id); 
   }
 }
