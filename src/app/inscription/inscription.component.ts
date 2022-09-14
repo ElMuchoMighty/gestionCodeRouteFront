@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
+import { Rapport } from 'app/models/rapport';
+import { Utilisateur } from 'app/models/utilisateur';
+import { RapportService } from 'app/services/rapport.service';
+=======
 import { AppService } from 'app/app.service';
 import { Utilisateur } from 'app/models/utilisateur';
 import { RoleService } from 'app/services/role.service';
+>>>>>>> master
 import { UtilisateurService } from 'app/services/utilisateur.service';
 
 @Component({
@@ -14,15 +20,25 @@ export class InscriptionComponent implements OnInit {
   users!: any[]; 
   roles!: any[];
   utilisateur:Utilisateur=new Utilisateur();
-  constructor(private utilisateurService:UtilisateurService, private router:Router, private roleService:RoleService, private appService:AppService) { }
+  rapports!: any[];
+  rapport:Rapport=new Rapport();
+
+  constructor(private utilisateurService:UtilisateurService, private router:Router, private roleService:RoleService, private appService:AppService,private rapportService:RapportService,) { }
 
   ngOnInit(): void {
     this.findAllUtilisateur();
     this.findAllRoles();
+    this.findAllRapport();
+
   }
 
   findAllUtilisateur(){
     this.utilisateurService.findAll().subscribe(data => {this.users = data;})
+  }
+
+  
+  findAllRapport(){
+    this.rapportService.findAll().subscribe(data => {this.rapports = data;})
   }
   
   save(){
@@ -33,6 +49,20 @@ export class InscriptionComponent implements OnInit {
       }
     )
   }
+
+  saveRapport(){
+        this.rapportService.save(this.rapport).subscribe(()=>{this.findAllRapport();this.rapport =new Rapport();
+            })
+    }
+
+
+
+    supprimerRapport(id:number){
+      this.rapportService.delete(id).subscribe(()=>{this.findAllRapport()});
+    }
+
+
+
 
   supprimer(id:number){
     this.utilisateurService.delete(id).subscribe(()=>{this.findAllUtilisateur()});

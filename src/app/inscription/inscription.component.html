@@ -125,6 +125,83 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Creer un Rapport</h4>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="saveRapport()">
+                            
+                            <div class="row">
+                                <div class="col-md-6">            
+                                 <div class="form-group">
+                                    <input matInput placeholder="Titre" type="text"  [(ngModel)]="rapport.titreRapport" name="titreRapport">
+                                 </div>
+                                 </div>
+                             </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <textarea placeholder="Rapport" rows="5" class="form-control"   [(ngModel)]='rapport.contenuRapport' name="contenuRapport"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button mat-raised-button  class="btn btn-danger ">Ajouter Rapport</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Liste des Rapport</h4>
+                        <p class="card-category"> vous voulez supprimer des rapports ?</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                       titre
+                                    </th>
+                                    <th>
+                                       contenu
+                                    </th>
+                                </thead>
+                                <tbody>
+                                  
+                                  <tr *ngFor="let r of rapports">
+                                      
+                                    <td>{{r.titreRapport}}</td>
+                                    <td>{{r.contenuRapport}}</td>
+                                    <td><button (click)="supprimerRapport(r.idRapport)" class="btn btn-danger pull-right">Delete</button></td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+        
     </div>
 </div>
 

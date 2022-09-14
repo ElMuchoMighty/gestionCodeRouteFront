@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MapsComponent implements OnInit {
-
+  place="Pau";
   constructor() { }
 
   ngOnInit() { }

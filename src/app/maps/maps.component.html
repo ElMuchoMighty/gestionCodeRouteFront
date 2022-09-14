@@ -1,1 +1,21 @@
 
+<div class="main-content">
+<div>
+    <select  name="endroit" [(ngModel)]="place">
+        <option >
+            Morlaas
+        </option>
+        <option>Saint Jammes</option>
+        <option>Tournefeuille</option>
+    </select> 
+    {{place}}
+</div>
+
+<div>
+    <ngui-map zoom="15" center={{place}} style="margin-top:60px;height: 100%; width: 100%; position: absolute;top: 100px;
+left: 0px;
+background-color: rgb(229, 227, 223);">
+        <marker [position]="[43.2957547,-0.3685668]"></marker>
+    </ngui-map>
+</div>
+</div>
