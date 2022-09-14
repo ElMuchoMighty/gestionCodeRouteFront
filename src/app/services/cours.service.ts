@@ -21,7 +21,7 @@ export class CoursService {
   }
   public updateCours(cours:any):Observable<any>{
     var coursParse = JSON.parse(cours);
-    return this.httpClient.put(this.baseUrl+'/'+coursParse.idUtilisateur,coursParse);
+    return this.httpClient.put(this.baseUrl+'/'+coursParse.idCours,coursParse);
   }
 
   public delete(id:number):Observable<any>{

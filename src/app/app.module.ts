@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { SidebarModule } from './sidebar/sidebar.module';
-import { MoniteurService } from './services/moniteur.service';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
@@ -22,6 +21,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { ExamenFinalService } from './services/examenfinal.service';
 import { ExamenBlancService } from './services/examenblanc.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { StatistiqueService } from './services/statistique.service';
 import { StatistiqueComponent } from './statistique/statistique.component';
 
 
@@ -59,7 +59,7 @@ export class XhrInterceptor implements HttpInterceptor{
     StatistiqueComponent,
   ],
   
-  providers: [MoniteurService,TestService,ReponseService,ReponseService,CoursService,UtilisateurService,ExamenBlancService,ExamenFinalService,{provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}],
+  providers: [StatistiqueService,/*MoniteurService,*/TestService,ReponseService,ReponseService,CoursService,UtilisateurService,ExamenBlancService,ExamenFinalService,{provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

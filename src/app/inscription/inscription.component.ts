@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from 'app/app.service';
 import { Utilisateur } from 'app/models/utilisateur';
 import { RoleService } from 'app/services/role.service';
 import { UtilisateurService } from 'app/services/utilisateur.service';
@@ -13,7 +14,7 @@ export class InscriptionComponent implements OnInit {
   users!: any[]; 
   roles!: any[];
   utilisateur:Utilisateur=new Utilisateur();
-  constructor(private utilisateurService:UtilisateurService, private router:Router, private roleService:RoleService) { }
+  constructor(private utilisateurService:UtilisateurService, private router:Router, private roleService:RoleService, private appService:AppService) { }
 
   ngOnInit(): void {
     this.findAllUtilisateur();
@@ -50,5 +51,25 @@ export class InscriptionComponent implements OnInit {
 
   findAllRoles(){
     this.roleService.findAll().subscribe(data => {this.roles = data;})
+  }
+
+  authenticated(){
+    return this.appService.authenticated;//false
+  }
+
+  authorities(){
+    if(this.appService.isAdministrateur ==true){
+      return false; 
+    }else{
+      return true
+    }
+  }
+
+  authorities2(){
+    if(this.appService.authenticated ==false){
+      return false; 
+    }else{
+      return true
+    }
   }
 }

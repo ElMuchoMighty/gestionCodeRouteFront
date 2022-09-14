@@ -38,7 +38,7 @@ score=0;
 idRef=0;
 idRefFinal=0;
 scoreF=0;
-  constructor(private testService:TestService,private reponseService:ReponseService,private examenBlancService:ExamenBlancService,private examenFinalService:ExamenFinalService) { }
+  constructor(private testService:TestService,private reponseService:ReponseService,private examenBlancService:ExamenBlancService,private examenFinalService:ExamenFinalService, private appService:AppService) { }
 
   ngOnInit() {
     this.findAllTest();
@@ -120,6 +120,18 @@ deleteReponse(id:number){
       this.scoreF=scoreF+1
     }else{
       this.scoreF=scoreF-1
+    }
+  }
+
+  authenticated(){
+    return this.appService.authenticated;//false
+  }
+
+  authorities(){
+    if(this.appService.isAdministrateur ==true){
+      return false; 
+    }else{
+      return true
     }
   }
 
