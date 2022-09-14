@@ -21,6 +21,8 @@ import { EditcoursComponent } from './editcours/editcours.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ExamenFinalService } from './services/examenfinal.service';
 import { ExamenBlancService } from './services/examenblanc.service';
+import { RapportService } from './services/rapport.service';
+
 
 
 
@@ -55,7 +57,7 @@ export class XhrInterceptor implements HttpInterceptor{
     EdituserComponent,
   ],
   
-  providers: [MoniteurService,TestService,ReponseService,ReponseService,CoursService,UtilisateurService,ExamenBlancService,ExamenFinalService,{provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}],
+  providers: [MoniteurService,TestService,ReponseService,ReponseService,CoursService,UtilisateurService,ExamenBlancService,ExamenFinalService,RapportService,{provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
