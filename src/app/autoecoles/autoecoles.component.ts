@@ -78,6 +78,7 @@ export class AutoecolesComponent implements OnInit {
 
   saveMoniteur() {
         console.log(this.moniteur.permis);
+        console.log(this.moniteur)
         this.moniteurService.save(this.moniteur).subscribe(
       () => {
         this.findAllMoniteur(); // MAJ de la liste des utilisateurs

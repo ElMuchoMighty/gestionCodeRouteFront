@@ -41,6 +41,7 @@ export class InscriptionComponent implements OnInit {
   }
   
   save(){
+    console.log(this.utilisateur)
     this.utilisateurService.save(this.utilisateur).subscribe(
       () => {
         this.findAllUtilisateur();

@@ -116,63 +116,6 @@
 
 
         <!-- FORMULAIRE MONITEUR-->
-        
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title">Ajouter un Moniteur</h4>
-                    </div>
-                    <div class="card-body">
-                        <form (ngSubmit)="save()">
-                            <div class="row">
-                                <div class="col-md-6">
-                                  <li class="example-full-width">
-                                    <input placeholder="Nom" type="text" [(ngModel)]="moniteur.nomMoniteur" name="nomMoniteur">
-                                  </li>
-                                </div>
-                                <div class="col-md-6">
-                                  <li class="example-full-width">
-                                    <input placeholder="Prénom" type="text" [(ngModel)]="moniteur.prenomMoniteur" name="prenomMoniteur">
-                                  </li>
-                                </div>   
-                                <div class="col-md-6">
-                                    <li class="example-full-width">
-                                      <input placeholder="Anneeexperience" type="text" [(ngModel)]="moniteur.anneeMoniteur" name="anneeMoniteur">
-                                    </li>
-                                </div>   
-                                <div class="col-md-6">
-                                    <li class="example-full-width">
-                                      <input placeholder="DescriptionMoniteur" type="text" [(ngModel)]="moniteur.descriptionMoniteur" name="descriptionMoniteur">
-                                    </li>
-                                </div>   
-                                <div class="col-md-6">
-                                    <li class="example-full-width">
-                                      <input placeholder="EmailMoniteur" type="text" [(ngModel)]="moniteur.emailMoniteur" name="emailMoniteur">
-                                    </li>
-                                </div>    
-                                <div class="col-md-6">
-                                    <li class="example-full-width">
-                                      <input placeholder="TelephoneMoniteur" type="text" [(ngModel)]="moniteur.telephoneMoniteur" name="telephoneMoniteur">
-                                    </li>
-                                </div>                             
-                            </div>
-
-                            <!--
-                            <div class="row">
-                              <label>Image</label>
-                              <input type="file" (change)="selectFile($event)" name="image">
-                            </div>   
-                            -->                          
-                            <button class="btn btn-danger pull-right">Ajouter</button>
-                            <div class="clearfix"></div>
-                        
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
 
 
         <div class="row">
@@ -230,7 +173,7 @@
                                 
                                 <div class="col-md-6">
                                     <select multiple name="permis" [(ngModel)]="moniteur.permis">
-                                            <option *ngFor="let p of permiss" [ngValue]="p">
+                                            <option *ngFor="let p of permiss" [ngValue]="p.libPermis">
                                                 {{p.libPermis}}
                                             </option>
                                     </select>
