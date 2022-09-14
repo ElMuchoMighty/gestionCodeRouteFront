@@ -83,11 +83,26 @@
                     <div class="card-body">
                         <form (ngSubmit)="saveAutoecole()">
                             <div class="row">
-                                <div class="col-md-6">
+                                <!--<div class="col-md-6">
                                   <li class="example-full-width">
-                                    <input placeholder="adresseAutoEcole" type="text" [(ngModel)]="autoecole.adresseAutoEcole" name="adresseAutoEcole">
+                                    <input placeholder="adresseAutoEcole" type="text" [(ngModel)]="autoecole.adresseAutoEcole.region" name="adresseAutoEcole">
                                   </li>
                                 </div>
+                                <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="adresseAutoEcole" type="text" [(ngModel)]="autoecole.adresseAutoEcole.ville" name="adresseAutoEcole">
+                                    </li>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="adresseAutoEcole" type="text" [(ngModel)]="autoecole.adresseAutoEcole.adressePostale" name="adresseAutoEcole">
+                                    </li>
+                                  </div>  
+                                  <div class="col-md-6">
+                                    <li class="example-full-width">
+                                      <input placeholder="adresseAutoEcole" type="text" [(ngModel)]="autoecole.adresseAutoEcole.codePostale" name="adresseAutoEcole">
+                                    </li>
+                                  </div>-->
                                 <div class="col-md-6">
                                   <li class="example-full-width">
                                     <input placeholder="emailAutoEcole" type="text" [(ngModel)]="autoecole.emailAutoEcole" name="emailAutoEcole">
@@ -133,7 +148,7 @@
           <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-danger">
-                    <h4 class="card-title ">Les auto ecoles</h4>
+                    <h4 class="card-title ">Listes des auto ecoles</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -170,6 +185,12 @@
                                 <tbody>
                                     <tr *ngFor="let ae of autoecoles">
                                         <td>{{ae.adresseAutoEcole}}</td>
+                                       <!--
+                                        <td>{{ae.adresseAutoEcole.region}}</td>
+                                        <td>{{ae.adresseAutoEcole.ville}}</td>
+                                        <td>{{ae.adresseAutoEcole.adressePostale}}</td>
+                                        <td>{{ae.adresseAutoEcole.codePostale}}</td>
+                                       -->
                                         <td>{{ae.emailAutoEcole}}</td>   
                                         <td>{{ae.telephoneAutoEcole}}</td>    
                                         <td>{{ae.enseigneAutoEcole}}</td>    
@@ -253,7 +274,7 @@
           <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-danger">
-                    <h4 class="card-title ">Les moniteurs</h4>
+                    <h4 class="card-title ">Listes des moniteurs</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -353,7 +374,7 @@
             <div class="col-md-12">
               <div class="card">
                   <div class="card-header card-header-danger">
-                      <h4 class="card-title ">Les Rendez-vous</h4>
+                      <h4 class="card-title ">Listes des Rendez-vous</h4>
                     </div>
                   <div class="card-body">
                       <div class="table-responsive">
