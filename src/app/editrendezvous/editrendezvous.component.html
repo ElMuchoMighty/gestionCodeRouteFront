@@ -1,0 +1,24 @@
+<div>
+    <h1>Mise à jour d'un rendez-vous</h1>
+    <form [formGroup]="editForm">
+        <table>
+           
+            <tr>
+                <td>Nom</td>
+                <td><input type="text" [(ngModel)]="rendezvous.dateRendezVous" formControlName="dateRendezVous"/></td>
+            </tr>
+            <tr>
+                <td>Prénom</td>
+                <td><input type="text" [(ngModel)]="rendezvous.heureRendezVous" formControlName="heureRendezVous"/></td>
+            </tr>
+            <tr>
+                <td>Annee d experience</td>
+                <td><input type="text" [(ngModel)]="rendezvous.autoEcoleRendezVous" formControlName="autoEcoleRendezVous"/></td>
+            </tr>
+           
+            <tr>
+                <td colspan="2"><button (click)="updateRendezvous()">Ajouter</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
