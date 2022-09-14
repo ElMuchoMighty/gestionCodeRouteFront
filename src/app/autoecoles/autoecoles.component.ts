@@ -15,9 +15,7 @@ import { RendezvousService } from 'app/services/rendezvous.service';
 })
 export class AutoecolesComponent implements OnInit {
 
-  selectedFiles:FileList
   currentFileUpload:File
-  users!: any[]; 
   moniteurs!: any[];
   autoecoles!: any[];
   rendezvouss!:any[];
@@ -32,7 +30,15 @@ export class AutoecolesComponent implements OnInit {
     this.findAllMoniteur();
     this.findAllRendezvous();
   }
+
+
+
+
   // ********************************AUTO ECOLE
+
+
+
+
   findAllAutoecole(){
     this.autoecoleService.findAll().subscribe((data: any[]) => {this.autoecoles = data;});
   }
@@ -65,7 +71,13 @@ export class AutoecolesComponent implements OnInit {
    
     }
 
-    //***************************** MONITEUR */
+
+
+
+    //***************************** MONITEUR **********************/
+
+
+
 
   findAllMoniteur(){
     this.moniteurService.findAll().subscribe((data: any[]) => {this.moniteurs = data;});
@@ -73,11 +85,11 @@ export class AutoecolesComponent implements OnInit {
   findOneMoniteur(id:number){
     this.moniteurService.findOne(id).subscribe(()=>{this.findAllMoniteur()})
   }
-
+/*
   selectFile(event: any) {
     this.selectedFiles = event.target.files;
   }
-
+*/
   save() {
         this.moniteurService.save(this.moniteur).subscribe(
       () => {
@@ -111,7 +123,17 @@ export class AutoecolesComponent implements OnInit {
    
     }
 
-    //******************* RENDEZ VOUS */
+
+
+
+
+    //******************* RENDEZ VOUS ****************/
+
+
+
+
+
+
 
     findAllRendezvous(){
       this.rendezvousService.findAll().subscribe((data: any[]) => {this.rendezvouss = data;});
@@ -145,7 +167,7 @@ export class AutoecolesComponent implements OnInit {
      
       }
 
-    contenus ="Vous pouvez consulter les rendez-vous les moniteurs et es auto-écoles";
+    contenus ="Vous pouvez consulter les rendez-vous les moniteurs et les auto-écoles";
     Titre="BIENVENUE A LA SESSION AUTO ECOLE :)"
     
     es(id:number) {
