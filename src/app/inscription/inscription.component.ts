@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
 import { Rapport } from 'app/models/rapport';
 import { Utilisateur } from 'app/models/utilisateur';
 import { RapportService } from 'app/services/rapport.service';
-=======
 import { AppService } from 'app/app.service';
-import { Utilisateur } from 'app/models/utilisateur';
+
+
 import { RoleService } from 'app/services/role.service';
->>>>>>> master
+
 import { UtilisateurService } from 'app/services/utilisateur.service';
 
 @Component({
