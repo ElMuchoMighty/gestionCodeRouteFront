@@ -6,10 +6,4 @@ import { Vehicules } from "./vehicules";
 export class Permisdeconduire {
     idPermis!:number;
     libPermis!:string;
-    villePermis!:string;
-    paysPermis!:string;
-    assuranceauto!:Assuranceauto[];
-    vehicules!:Vehicules[];
-    moniteurs!:Moniteur[];
-    utilisateur!:Utilisateur;
 }

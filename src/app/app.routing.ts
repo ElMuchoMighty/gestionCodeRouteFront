@@ -11,6 +11,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { StatistiqueComponent } from './statistique/statistique.component';
 import { EditRendezvousComponent } from './editrendezvous/editrendezvous.component';
+import { AutoecolesComponent } from './autoecoles/autoecoles.component';
 
 
 const routes: Routes =[

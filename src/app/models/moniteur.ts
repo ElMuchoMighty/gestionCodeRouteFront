@@ -1,3 +1,5 @@
+import { Permisdeconduire } from "./permisdeconduire";
+
 export class Moniteur {
     idMoniteur!:number;
     nomMoniteur!:string;
@@ -6,7 +8,6 @@ export class Moniteur {
     descriptionMoniteur!:string;
     telephoneMoniteur!:number;
     emailMoniteur!:string;
-  contenuCours: string;
-   //autoEcole!:AutoEcole;
+    permisDeConduire!:Permisdeconduire[];
 
 }

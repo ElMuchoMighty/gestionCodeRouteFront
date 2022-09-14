@@ -34,12 +34,11 @@ export class InscriptionComponent implements OnInit {
   findAllUtilisateur(){
     this.utilisateurService.findAll().subscribe(data => {this.users = data;})
   }
-
-  
-  findAllRapport(){
-    this.rapportService.findAll().subscribe(data => {this.rapports = data;})
+  supprimer(id:number){
+    this.utilisateurService.delete(id).subscribe(()=>{this.findAllUtilisateur()});
   }
-  
+
+
   save(){
     this.utilisateurService.save(this.utilisateur).subscribe(
       () => {
@@ -47,6 +46,10 @@ export class InscriptionComponent implements OnInit {
         this.utilisateur = new Utilisateur();
       }
     )
+  }
+
+  findAllRapport(){
+    this.rapportService.findAll().subscribe(data => {this.rapports = data;})
   }
 
   saveRapport(){
@@ -63,9 +66,7 @@ export class InscriptionComponent implements OnInit {
 
 
 
-  supprimer(id:number){
-    this.utilisateurService.delete(id).subscribe(()=>{this.findAllUtilisateur()});
-  }
+  
 
   editUser(user:Utilisateur){
     // Step 2
