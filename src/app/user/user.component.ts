@@ -13,7 +13,7 @@ export class UserComponent implements OnInit {
   credentials = {username: '', password:''}
   constructor(private appService:AppService, private httpClient:HttpClient,private router:Router) { }
 login(){
-  this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("/typography")});
+  this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("/user")});
   return false;
 }
   ngOnInit() {
@@ -22,5 +22,31 @@ login(){
     
     this.router.navigate(['/inscription']);
     
+  }
+
+deco(){
+    
+  this.router.navigate(['/user']);
+  
+}
+
+  authenticated(){
+    return this.appService.authenticated;//false
+  }
+
+  authorities(){
+    if(this.appService.isAdministrateur ==true){
+      return false; 
+    }else{
+      return true
+    }
+  }
+
+  authorities2(){
+    if(this.appService.authenticated ==false){
+      return false; 
+    }else{
+      return true
+    }
   }
 }

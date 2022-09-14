@@ -58,13 +58,25 @@
                                         <input type="text" class="form-control" placeholder="Entrez votre téléphone"[(ngModel)]="utilisateur.telUtilisateur" name="telUtilisateur">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                
+                                <div class="col-md-6"[hidden]="authorities2()">
+                                    <select multiple name="roles" [(ngModel)]="utilisateur.roles">
+                                        <ng-container *ngFor="let r of roles">
+                                            <option *ngIf="r.idRole!=1" [ngValue]="r">
+                                                {{r.libelle}}
+                                            </option>
+                                        </ng-container>
+                                    </select>
+                                </div>
+                               
+                                <div class="col-md-6"[hidden]="authorities()">
                                     <select multiple name="roles" [(ngModel)]="utilisateur.roles">
                                         <option *ngFor="let r of roles" [ngValue]="r">
                                             {{r.libelle}}
                                         </option>
                                     </select>
                                 </div>
+
                             </div>
                             <button class="btn btn-info btn-fill pull-right">S'inscrire</button>
                             <div class="clearfix"></div>
@@ -73,7 +85,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" [hidden]="authorities()">
             <div class="col-md-12">
                 <div class="card card-plain">
                     <div class="header">

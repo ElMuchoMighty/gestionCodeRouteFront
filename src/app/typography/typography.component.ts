@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from 'app/app.service';
 import { Cours } from 'app/models/cours';
 import { CoursService } from 'app/services/cours.service';
 import { Observable } from 'rxjs';
@@ -14,8 +15,7 @@ import { Observable } from 'rxjs';
 export class TypographyComponent implements OnInit {
   classes!: any[]; 
   cours:Cours=new Cours();
-  appService: any;
-  constructor(private coursService:CoursService, private router:Router) { }
+  constructor(private coursService:CoursService, private router:Router, private appService:AppService) { }
   ngOnInit(): void {
  
    // this.users = this.utilisateurService.users;
@@ -48,9 +48,12 @@ export class TypographyComponent implements OnInit {
     localStorage.removeItem("editcoursId");
     // Step 1
     localStorage.setItem("editcoursId",cours.idCours.toString());
+
     // Step 3
     // localhost:4200/editUser/3
+    console.log(cours.idCours);
     this.router.navigate(['/editcours',cours.idCours]);
+    
  
   }
 
@@ -117,14 +120,22 @@ rs(id:number) {
                 authenticated(){
                   return this.appService.authenticated;//false
                 }
+
                 authorities(){
-                  if(this.appService.isAdmin ==true){
+                  if(this.appService.isAdministrateur ==true){
                     return false; 
                   }else{
                     return true
                   }
                 }
 
+                authorities2(){
+                  if(this.appService.authenticated ==false){
+                    return false; 
+                  }else{
+                    return true
+                  }
+                }
                
               }
 

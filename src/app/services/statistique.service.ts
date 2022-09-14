@@ -13,7 +13,7 @@ export class StatistiqueService {
     return this.httpClient.get(this.baseUrl+"/AdminR"); // http:localhost:7070/utilisateurs: le verbe get => afficher la liste des utilisateurs
   }
 
-  public NombreAdmin2() : Observable<any>{
+  public NombreCandidat1() : Observable<any>{
     return this.httpClient.get(this.baseUrl+"/CandidatR"); // http:localhost:7070/utilisateurs: le verbe get => afficher la liste des utilisateurs
   }
 }

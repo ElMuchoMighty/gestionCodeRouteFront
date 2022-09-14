@@ -1,6 +1,13 @@
 <div class="main-content" >
     <div class="container-fluid">
-        <div class="row">
+        <div [hidden]="!authenticated()">
+        <h1>Vous êtes connectés les bros</h1>
+        <div class="row" [hidden]="authorities()">
+        <a href="http://localhost:4200/#/inscription" class="btn btn-info"> Ajouter des utilisateurs ou des admins</a>
+    </div>
+        <a href="http://localhost:4200/logout" class="btn btn-info" (click)="deco()"> Deconnexion</a>
+    </div>
+        <div class="row" [hidden]="authorities2()">
             <div class="col-md-5">
                 <div class="card card-user">
                     <div class="header">
@@ -21,7 +28,7 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label>Password</label>
-                                                        <input type="text" class="form-control" placeholder="PassWord" [(ngModel)]="credentials.password" name="password">
+                                                        <input type="password" class="form-control" placeholder="PassWord" [(ngModel)]="credentials.password" name="password">
                                                 </div>
                                             </div>
                                         </div>
@@ -44,4 +51,7 @@
                 </div>
         </div>
     </div>
+</div>
+<div [hidden]="authenticated()">
+    <p>Connectez-vous pour afficher l'interface des utilisateurs</p>
 </div>
