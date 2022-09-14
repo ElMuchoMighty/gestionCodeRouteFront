@@ -21,11 +21,7 @@ export class TypographyComponent implements OnInit {
    // this.users = this.utilisateurService.users;
    this.findAllCours();
   }
-  stats(){
-    
-    this.router.navigate(['/statistique']);
-    
-  }
+  
   findAllCours(){
     this.coursService.findAll().subscribe(data => {this.classes = data;})
   }
