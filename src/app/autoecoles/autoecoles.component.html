@@ -11,8 +11,8 @@
 
        
         <!--FORMULAIRE AUTO ECOLE-->
-
-        <div class="row">
+        <div [hidden]="!authenticated()">
+        <div class="row"[hidden]="authorities()">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header card-header-danger">
@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row"[hidden]="authorities()">
           <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-danger">
@@ -118,7 +118,7 @@
         <!-- FORMULAIRE MONITEUR-->
 
 
-        <div class="row">
+        <div class="row"[hidden]="authorities()">
             <div class="col-md-8">
                 <div class="card">
                     <div class="header">
@@ -196,7 +196,7 @@
 
 
 
-        <div class="row">
+        <div class="row" [hidden]="authorities()">
           <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-danger">
@@ -242,6 +242,7 @@
  
                                         
                                         <td><button class="btn btn-danger pull-right" (click)="delete(m.idMoniteur)">Delete</button></td>
+                                        <td><button class="btn btn-danger pull-right" (click)="editMoniteur(m)">Editer les moniteurs</button></td>
                                     </tr>                                 
                                 </tbody>
                              </table>                    
@@ -249,6 +250,10 @@
                       </div>
                  </div>
              </div>
+        </div>editMoniteur
+        </div>
+        <div [hidden]="authenticated()">
+            <p>Vous êtes administrateur ? Accéder à des suppléments</p>
         </div>
 
 

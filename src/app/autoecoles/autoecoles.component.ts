@@ -87,12 +87,12 @@ export class AutoecolesComponent implements OnInit {
 
   editMoniteur(moniteur:Moniteur){
       // Step 2
-      localStorage.removeItem("editMoniteurId");
+      localStorage.removeItem("editmoniteurId");
       // Step 1
-      localStorage.setItem("editMoniteurId",moniteur.idMoniteur.toString());
+      localStorage.setItem("editmoniteurId",moniteur.idMoniteur.toString());
       // Step 3
       // localhost:4200/editUser/3
-      this.router.navigate(['editMoniteur',moniteur.idMoniteur]);
+      this.router.navigate(['/editmoniteur',moniteur.idMoniteur]);
    
     }
 

@@ -16,8 +16,8 @@ export class EditMoniteurComponent implements OnInit {
     private formBuilder:FormBuilder) { }
  
   ngOnInit(): void {
-    let userId = localStorage.getItem("editMoniteurId");
-    if(!userId){
+    let moniteurId = localStorage.getItem("editmoniteurId");
+    if(!moniteurId){
       alert("Invalid Action!!!");
       this.router.navigate(['/moniteur']);
       return;
@@ -29,16 +29,16 @@ export class EditMoniteurComponent implements OnInit {
       anneeMoniteur:['',Validators.required],
       descriptionMoniteur:['',Validators.required],
       telephoneMoniteur:['',Validators.required],
-      emailMoniteur:['',Validators.required],
+      emailMoniteur:['',Validators.required]
     })
-    this.moniteurService.getMoniteur(+userId).
+    this.moniteurService.findOne(+moniteurId).
     subscribe(data => {this.editForm.setValue(data)});  
   }
  
   updateMoniteur(){
-    var userJson = JSON.stringify(this.editForm.value);
-    this.moniteurService.updateMoniteur(userJson).
-    subscribe(()=>{this.router.navigate(['/moniteur'])});
+    var moniteurJson = JSON.stringify(this.editForm.value);
+    this.moniteurService.updateMoniteur(moniteurJson).
+    subscribe(()=>{this.router.navigate(['/autoecoles'])});
   }
  
 }

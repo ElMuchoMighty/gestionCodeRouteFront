@@ -26,7 +26,7 @@ export class EditRendezvousComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       idRendezVous:[],
       heureRendezVous: ['',Validators.required],
-      dateRendezVous: ['',Validators.required],
+      dateRendezVous: ['',Validators.required]
     })
     this.rendezVousService.findOne(+rendezVousId).
     subscribe(data => {this.editForm.setValue(data)});  
@@ -35,10 +35,10 @@ export class EditRendezvousComponent implements OnInit {
   }
  
   updateRendezvous(){
-    var coursJson = JSON.stringify(this.editForm.value);
-    this.rendezVousService.updateRendezVous(coursJson).
+    var rendezVousJson = JSON.stringify(this.editForm.value);
+    this.rendezVousService.updateRendezVous(rendezVousJson).
     subscribe(()=>{this.router.navigate(['/autoecoles'])});
-    console.log(coursJson);
+    console.log(rendezVousJson);
   }
  
 }
