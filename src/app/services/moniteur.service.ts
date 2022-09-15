@@ -14,23 +14,20 @@ export class MoniteurService {
     constructor(private httpClient:HttpClient) { }
   
     public findAll() : Observable<any>{
-      return this.httpClient.get(this.baseUrl);
+      return this.httpClient.get(this.baseUrl); // http:localhost:7070/utilisateurs: le verbe get => afficher la liste des utilisateurs
     }
     public findOne(id:number) : Observable<any>{
       return this.httpClient.get(this.baseUrl+"/"+id);
     }
-    public save(moniteur:any) : Observable<any>{
+    public save (moniteur:any):Observable<any>{
       return this.httpClient.post(this.baseUrl,moniteur);
     }
-    public delete(id:number) : Observable<any>{
-      return this.httpClient.delete(this.baseUrl+"/"+id);
+    public updateMoniteur(moniteur:any):Observable<any>{
+      var moniteurParse = JSON.parse(moniteur);
+      return this.httpClient.put(this.baseUrl+'/'+moniteurParse.idMoniteur,moniteurParse);
     }
-    public getMoniteur(id:number):Observable<any>{
-      return this.httpClient.get(this.baseUrl+'/'+id);
-    }
-    public updateMoniteur(user:any):Observable<any>{
-      var userParse = JSON.parse(user);
-      return this.httpClient.put(this.baseUrl+'/'+userParse.idMoniteur,userParse);
+    public delete(id:number):Observable<any>{
+      return this.httpClient.delete(this.baseUrl+"/"+id); //http://localhost:7070/Cours/1
     }
   
   }
