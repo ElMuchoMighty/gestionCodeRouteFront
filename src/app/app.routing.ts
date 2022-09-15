@@ -10,11 +10,19 @@ import { UserComponent } from './user/user.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { StatistiqueComponent } from './statistique/statistique.component';
+import { EditRendezvousComponent } from './editrendezvous/editrendezvous.component';
+import { AutoecolesComponent } from './autoecoles/autoecoles.component';
 
 
 const routes: Routes =[
 
+  
+  
+  
   {
+    path: 'editrendezvous/:id', // localhost:4200/editUser/4
+    component: EditRendezvousComponent
+  },{
     path: 'statistique', // localhost:4200/editUser/4
     component: StatistiqueComponent
   },{

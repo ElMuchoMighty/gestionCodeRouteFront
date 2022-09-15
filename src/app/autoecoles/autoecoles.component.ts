@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from 'app/app.service';
 import { Autoecole } from 'app/models/autoecole';
 import { Moniteur } from 'app/models/moniteur';
 import { Permisdeconduire } from 'app/models/permisdeconduire';
@@ -20,23 +21,22 @@ export class AutoecolesComponent implements OnInit {
   currentFileUpload:File
   moniteurs!: any[];
   autoecoles!: any[];
+  appointment!:any[];
   rendezvouss!:any[];
   permiss!:any[];
   moniteur : Moniteur = new Moniteur();
   autoecole : Autoecole = new Autoecole();
-  rendezvous : Rendezvous = new Rendezvous();
+  rendezVous : Rendezvous = new Rendezvous();
   
-  constructor(private moniteurService:MoniteurService,private autoecoleService:AutoecoleService,private rendezvousService:RendezvousService,private router:Router,private permisService:PermisService) { }
+
+  constructor(private moniteurService:MoniteurService,private autoecoleService:AutoecoleService,private rendezVousService:RendezvousService,private router:Router,private permisService:PermisService, private appService:AppService) { }
 
   ngOnInit(): void {
     this.findAllAutoecole();
     this.findAllMoniteur();
-    this.findAllRendezvous();
+    this.findAllRendezVous();
     this.findAllPermis();
   }
-
-
-
 
   // ********************************AUTO ECOLE
 
@@ -64,21 +64,14 @@ export class AutoecolesComponent implements OnInit {
     this.autoecoleService.delete(id).subscribe(()=>{this.findAllAutoecole()});
   }
 
-  //***************************** MONITEUR **********************/
-
-
-
-
   findAllMoniteur(){
     this.moniteurService.findAll().subscribe((data: any[]) => {this.moniteurs = data;});
   }
-  findOneMoniteur(id:number){
+  /*findOneMoniteur(id:number){
     this.moniteurService.findOne(id).subscribe(()=>{this.findAllMoniteur()})
-  }
+  }*/
 
   saveMoniteur() {
-        console.log(this.moniteur.permis);
-        console.log(this.moniteur)
         this.moniteurService.save(this.moniteur).subscribe(
       () => {
         this.findAllMoniteur(); // MAJ de la liste des utilisateurs
@@ -86,7 +79,6 @@ export class AutoecolesComponent implements OnInit {
       }
     )
   }
-
 
   delete(id:number){
     this.moniteurService.delete(id).subscribe(()=>{this.findAllMoniteur()});
@@ -114,44 +106,55 @@ export class AutoecolesComponent implements OnInit {
 
     //******************* RENDEZ VOUS ****************/
 
-
-
-
-
-
-
-    findAllRendezvous(){
-      this.rendezvousService.findAll().subscribe((data: any[]) => {this.rendezvouss = data;});
+    findAllRendezVous(){
+      this.rendezVousService.findAll().subscribe(data => {this.appointment = data;})
     }
-    findOneRendezvous(id:number){
-      this.rendezvousService.findOne(id).subscribe(()=>{this.findAllRendezvous()})
+    findOneRendezVous(id:number){
+      this.rendezVousService.findOne(id).subscribe(()=>{this.findAllRendezVous()})
     }
-    
-    saveRendezvous() {
-          this.rendezvousService.save(this.rendezvous).subscribe(
+    saveRendezVous(){
+      this.rendezVousService.save(this.rendezVous).subscribe(
         () => {
-          this.findAllRendezvous(); // MAJ de la liste des utilisateurs
-          this.rendezvous = new Rendezvous(); // Vider le formulaire        
+          this.findAllRendezVous();
+          this.rendezVous = new Rendezvous();
         }
       )
     }
-   
-  
-    deleteRendezvous(id:number){
-      this.rendezvousService.delete(id).subscribe(()=>{this.findAllRendezvous()});
+    deleteRendezVous (id:number){
+      this.rendezVousService.delete(id).subscribe(()=>{this.findAllRendezVous()});
     }
-    //constructor(private utilisateurService:UtilisateurService, private router:Router) { }
-    editRendezvous(rendezvous:Rendezvous){
-        // Step 2
-        localStorage.removeItem("editRendezvousId");
-        // Step 1
-        localStorage.setItem("editRendezvousId",rendezvous.idRendezVous.toString());
-        // Step 3
-        // localhost:4200/editUser/3
-        this.router.navigate(['editRendezvousId',rendezvous.idRendezVous]);
-     
-      }
 
-    contenus ="Vous pouvez consulter les rendez-vous les moniteurs et les auto-écoles";
-    Titre="BIENVENUE A LA SESSION AUTO ECOLE :)"
+
+    editRendezVous(rendezVous:Rendezvous){
+      // Step 2
+      localStorage.removeItem("editrendezvousId");
+      // Step 1
+      localStorage.setItem("editrendezvousId",rendezVous.idRendezVous.toString());
+  
+      // Step 3
+      // localhost:4200/editUser/3
+      this.router.navigate(['/editrendezvous',rendezVous.idRendezVous]);
+      
+   
+    }
+
+    authenticated(){
+      return this.appService.authenticated;//false
+    }
+
+    authorities(){
+      if(this.appService.isAdministrateur ==true){
+        return false; 
+      }else{
+        return true
+      }
+    }
+
+    authorities2(){
+      if(this.appService.authenticated ==false){
+        return false; 
+      }else{
+        return true
+      }
+    }
 }
