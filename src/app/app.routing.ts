@@ -12,6 +12,7 @@ import { EdituserComponent } from './edituser/edituser.component';
 import { StatistiqueComponent } from './statistique/statistique.component';
 import { EditRendezvousComponent } from './editrendezvous/editrendezvous.component';
 import { AutoecolesComponent } from './autoecoles/autoecoles.component';
+import { EditMoniteurComponent } from './editmoniteur/editmoniteur.component';
 
 
 const routes: Routes =[
@@ -20,6 +21,9 @@ const routes: Routes =[
   
   
   {
+    path: 'editmoniteur/:id', // localhost:4200/editUser/4
+    component: EditMoniteurComponent
+  },{
     path: 'editrendezvous/:id', // localhost:4200/editUser/4
     component: EditRendezvousComponent
   },{
