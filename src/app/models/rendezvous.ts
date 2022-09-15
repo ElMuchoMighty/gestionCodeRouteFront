@@ -4,5 +4,5 @@ export class Rendezvous {
     idRendezVous!:number;
     dateRendezVous!:Date;
     heureRendezVous!:number;
-    autoEcoleRendezVous!:Autoecole;
+    autoEcoleRendezVous!:Autoecole[];
 }

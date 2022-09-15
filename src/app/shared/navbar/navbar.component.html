@@ -12,13 +12,7 @@
         </div>    
         <div class="collapse navbar-collapse">
             <div [hidden]="!authenticated()">
-                <table>
-            <ng-container  *ngFor="let u of uti">
-                <tr *ngIf="u.idUtilisateur==u.idUtilisateur">
-                <td>{{u.username}}</td>
-            </tr>
-            </ng-container>
-        </table>
+                <span class="navbar-brand">{{afficher()}}</span>
             </div> 
             <ul class="nav navbar-nav navbar-left">
                <!--

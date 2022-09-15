@@ -59,9 +59,7 @@
                                 </div>
                                 </div>
                             </div>
-                            <div>
-                                {{test.idExamenBlancRef}}
-                            </div>
+
 
                             <div class="row">
                                 <div class="col-md-6">
@@ -74,9 +72,6 @@
                                     </select>                                 
                                 </div>
                                 </div>
-                            </div>
-                            <div>
-                                {{test.idExamenFinalRef}}
                             </div>
 
 
@@ -173,7 +168,6 @@
             </option>
         </select> 
 
-        {{idRef}}
          </div>
         
 
@@ -243,7 +237,6 @@
                 </option>
             </select> 
     
-            {{idRefFinal}}
          </div>
 
 
@@ -272,7 +265,6 @@
                             <tbody>
                               
                                 <ng-container *ngFor="let t of tests">
-                                    {{t.examenFinal.idExamenFinal}}
                              <tr *ngIf="t.examenFinal.idExamenFinal==idRefFinal">
                               <td><img src="data:image/jpeg;base64,{{t.image}}" height="120" width="120"/></td>
                                 <td>{{t.question}}</td>

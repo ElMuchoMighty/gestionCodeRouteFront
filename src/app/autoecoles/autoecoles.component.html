@@ -178,9 +178,16 @@
                                             </option>
                                     </select>
                                 </div>
-                               
-
                             </div>
+                            <div class="row">
+                            <div class="col-md-6">
+                                <select  name="autoecole" [(ngModel)]="moniteur.autoecole">
+                                        <option *ngFor="let ae of autoecoles" [ngValue]="ae">
+                                            {{ae.enseigneAutoEcole}} {{ae.ville}}
+                                        </option>
+                                </select>
+                            </div>
+                             </div>
                             <button class="btn btn-info btn-fill pull-right">S'inscrire</button>
                             <div class="clearfix"></div>
                         </form>
@@ -250,7 +257,7 @@
                       </div>
                  </div>
              </div>
-        </div>editMoniteur
+        </div>
         </div>
         <div [hidden]="authenticated()">
             <p>Vous êtes administrateur ? Accéder à des suppléments</p>
@@ -284,6 +291,16 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <select  name="autoEcoleRendezVous" [(ngModel)]="rendezVous.autoEcoleRendezVous">
+                                                                <option *ngFor="let ae of autoecoles" [ngValue]="ae">
+                                                                    {{ae.enseigneAutoEcole}} {{ae.ville}}
+                                                                </option>
+                                                        </select>
+                                                    </div>
+                                                  </div>
                                     <button class="btn btn-info btn-fill pull-right">Ajouter</button>
                                     <div class="clearfix"></div>
                                 </form>

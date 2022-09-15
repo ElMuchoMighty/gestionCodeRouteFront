@@ -1,3 +1,4 @@
+import { Autoecole } from "./autoecole";
 import { Permisdeconduire } from "./permisdeconduire";
 
 export class Moniteur {
@@ -9,5 +10,6 @@ export class Moniteur {
     telephoneMoniteur!:number;
     emailMoniteur!:string;
     permisDeConduire!:Permisdeconduire[];
+    autoecole!:Autoecole[];
 
 }

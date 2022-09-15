@@ -10,6 +10,7 @@ export class AppService {
 
   isAdministrateur=false;
   isCandidat=false;
+  username!:string
   
   constructor(private httpClient:HttpClient) { }
 
@@ -23,6 +24,7 @@ export class AppService {
         this.responseAll = response;
         if(this.responseAll['username']){
           this.authenticated = true;
+          this.username=credentials.username
           for(let i=0;i<this.responseAll['roles'].length;i++){
             if(this.responseAll['roles'][i]['idRole']==1){
               this.isAdministrateur = true;
