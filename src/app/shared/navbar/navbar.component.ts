@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit{
     private sidebarVisible: boolean;
     uti!: any[];
     utilisateur:Utilisateur=new Utilisateur();
+    username:string = this.appService.username;
 
     constructor(location: Location,  private element: ElementRef, private utilisateurService:UtilisateurService, private router:Router, private appService:AppService) {
       this.location = location;
@@ -30,6 +31,7 @@ export class NavbarComponent implements OnInit{
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
       this.findAllUtilisateur();
+      this.afficher();
     }
     sidebarOpen() {
         const toggleButton = this.toggleButton;
@@ -97,4 +99,9 @@ findOneCours(id:number){
     this.router.navigate(['/user']);
     
   }
+
+  afficher(){
+    return this.appService.username;
+  }
+
 }
